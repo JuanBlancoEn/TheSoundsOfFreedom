@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=5 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://mapa.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dwxdvduxauimv" path="res://personaje.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://diamante.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dcoab4rxteclt" path="res://personaje2.tscn" id="4_cm0pq"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,3 +46,6 @@ position = Vector2(459, 137)
 
 [node name="Area2D10" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(620, 158)
+
+[node name="Personaje2" parent="." instance=ExtResource("4_cm0pq")]
+position = Vector2(855, 16)
