@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtijuxgm0tox"
-path="res://.godot/imported/3Crate.png-9262b236e7a44e103a3b3242e144e6d7.ctex"
+uid="uid://muxogomeg5od"
+path="res://.godot/imported/wallpaperAroLuz.jpg-8b2f0a39ece5aacc55fcdf6091ed8cc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Crates/3Crate.png"
-dest_files=["res://.godot/imported/3Crate.png-9262b236e7a44e103a3b3242e144e6d7.ctex"]
+source_file="res://resources/wallpaperAroLuz.jpg"
+dest_files=["res://.godot/imported/wallpaperAroLuz.jpg-8b2f0a39ece5aacc55fcdf6091ed8cc3.ctex"]
 
 [params]
 
