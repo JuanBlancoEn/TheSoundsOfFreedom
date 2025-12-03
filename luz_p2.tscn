@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5f2osyqi215"]
+
+[ext_resource type="Script" uid="uid://dwb58nvgoqsf1" path="res://luz_p_2.gd" id="1_25cxp"]
+
+[sub_resource type="Gradient" id="Gradient_sibpx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rjuqe"]
+gradient = SubResource("Gradient_sibpx")
+fill = 1
+fill_from = Vector2(0.060747664, 0.07476635)
+fill_to = Vector2(0.91588783, 0.11682243)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw1fy"]
+radius = 7.28011
+
+[node name="LuzP2" type="Area2D"]
+script = ExtResource("1_25cxp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_rjuqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jw1fy")
