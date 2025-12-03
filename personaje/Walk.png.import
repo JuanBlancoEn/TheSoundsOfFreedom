@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtijuxgm0tox"
-path="res://.godot/imported/3Crate.png-9262b236e7a44e103a3b3242e144e6d7.ctex"
+uid="uid://c1dce65lo3vwb"
+path="res://.godot/imported/Walk.png-e4830cb6cacce2ce4d91eb6a80817555.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Crates/3Crate.png"
-dest_files=["res://.godot/imported/3Crate.png-9262b236e7a44e103a3b3242e144e6d7.ctex"]
+source_file="res://personaje/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-e4830cb6cacce2ce4d91eb6a80817555.ctex"]
 
 [params]
 
