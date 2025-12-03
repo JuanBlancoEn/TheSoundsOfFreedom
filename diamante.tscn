@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp2u88i654xcc"]
+[gd_scene load_steps=6 format=3 uid="uid://dj5pkwiilh3ii"]
 
 [ext_resource type="Script" uid="uid://kt0vchbxeprm" path="res://diamante.gd" id="1_2jy7h"]
 [ext_resource type="Texture2D" uid="uid://dg4yg06rf6bjs" path="res://resources/Items/items_sheet.png" id="1_3gpf5"]

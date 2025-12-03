@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=4 format=3 uid="uid://biag61xl3r21w"]
 
-[ext_resource type="PackedScene" uid="uid://xj7pvwhhxqde" path="res://mapa.tscn" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://bf0c0n61kuuc1" path="res://personaje.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://mapa.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dwxdvduxauimv" path="res://personaje.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://diamante.tscn" id="3_r0du0"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Mapa" parent="." instance=ExtResource("1_uu6xs")]
 
@@ -12,3 +15,26 @@ position = Vector2(-80, 75)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 blend_mode = 1
+
+[node name="Diamantes" type="Node2D" parent="."]
+
+[node name="Area2D" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(309, 184)
+
+[node name="Area2D2" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(493, 28)
+
+[node name="Area2D3" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(520, 280)
+
+[node name="Area2D4" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(697, -88)
+
+[node name="Area2D5" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(949, -63)
+
+[node name="Area2D6" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(271, 30)
+
+[node name="Area2D7" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(739, 129)
