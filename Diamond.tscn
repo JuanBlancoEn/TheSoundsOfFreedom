@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://sgf4k27ceuh5"]
+
+[ext_resource type="Texture2D" uid="uid://cvu4fv16ns2i0" path="res://resources/Items/items_sheet.png" id="1_v8mo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgffq"]
+atlas = ExtResource("1_v8mo2")
+region = Rect2(96, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dphic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgffq")
+}],
+"loop": true,
+"name": &"diamante",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvjmr"]
+radius = 8.0
+
+[node name="Node2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_dphic")
+animation = &"diamante"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rvjmr")
