@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://biag61xl3r21w"]
 
-[ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://mapa.tscn" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://dwxdvduxauimv" path="res://personaje.tscn" id="2_r0du0"]
-[ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://diamante.tscn" id="3_r0du0"]
-[ext_resource type="PackedScene" uid="uid://dcoab4rxteclt" path="res://personaje2.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://Scenes/mapa.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dwxdvduxauimv" path="res://Scenes/personaje.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dcoab4rxteclt" path="res://Scenes/personaje2.tscn" id="4_cm0pq"]
 
 [node name="Node2D" type="Node2D"]
 
