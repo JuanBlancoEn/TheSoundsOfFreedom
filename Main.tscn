@@ -6,35 +6,43 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-
 [node name="Mapa" parent="." instance=ExtResource("1_uu6xs")]
 
 [node name="Personaje" parent="." instance=ExtResource("2_r0du0")]
 position = Vector2(-80, 75)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="Diamantes" type="Node2D" parent="."]
 
 [node name="Area2D" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(309, 184)
+position = Vector2(311, 172)
 
 [node name="Area2D2" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(493, 28)
+position = Vector2(498, 42)
 
 [node name="Area2D3" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(520, 280)
+position = Vector2(511, 250)
 
 [node name="Area2D4" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(697, -88)
+position = Vector2(699, -68)
 
 [node name="Area2D5" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(949, -63)
+position = Vector2(945, -33)
 
 [node name="Area2D6" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(271, 30)
+position = Vector2(269, 46)
 
 [node name="Area2D7" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(739, 129)
+position = Vector2(739, 102)
+
+[node name="Area2D8" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(688, 231)
+
+[node name="Area2D9" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(459, 137)
+
+[node name="Area2D10" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(620, 158)
