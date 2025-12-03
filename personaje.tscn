@@ -1,6 +1,6 @@
-[gd_scene load_steps=78 format=3 uid="uid://bf0c0n61kuuc1"]
+[gd_scene load_steps=80 format=3 uid="uid://dwxdvduxauimv"]
 
-[ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://character_body_2d.gd" id="1_yppqc"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_yppqc"]
 [ext_resource type="Texture2D" uid="uid://cf03ciwgjnpiu" path="res://personaje/Idle3.png" id="2_gj0cs"]
 [ext_resource type="Texture2D" uid="uid://c1dce65lo3vwb" path="res://personaje/Walk.png" id="3_ck3sb"]
 
@@ -558,6 +558,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_yppqc"]
+offsets = PackedFloat32Array(0.00649351, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gj0cs"]
+gradient = SubResource("Gradient_yppqc")
+fill = 1
+fill_from = Vector2(0.509174, 0.509174)
+fill_to = Vector2(0.0733945, 0.944954)
+
 [node name="Personaje" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -570,3 +580,9 @@ shape = SubResource("CircleShape2D_cx4ix")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_fj5bu")
 animation = &"walk_right"
+frame = 2
+frame_progress = 0.662825
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+texture = SubResource("GradientTexture2D_gj0cs")

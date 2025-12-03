@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=3 format=3 uid="uid://cvnkj2vk12snb"]
 
-[ext_resource type="Texture2D" uid="uid://igkv4pd7j56x" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://mapa.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dwxdvduxauimv" path="res://personaje.tscn" id="2_r0du0"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(434, 266)
-texture = ExtResource("1_ig7tw")
+[node name="Mapa" parent="." instance=ExtResource("1_uu6xs")]
+
+[node name="Personaje" parent="." instance=ExtResource("2_r0du0")]
+position = Vector2(-80, 75)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 1
