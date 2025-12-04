@@ -8,7 +8,7 @@ var can_shoot = true
 func _process(delta):
 	if personaje1:
 		var distance = global_position.distance_to(personaje1.global_position)
-		if distance < 300 and can_shoot:
+		if  can_shoot:
 			shoot_light()
 
 func shoot_light():

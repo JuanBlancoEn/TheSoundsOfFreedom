@@ -11,7 +11,7 @@ func _process(delta):
 	
 	# 2. Reducir escala (hacerse pequeño)
 	# Restamos el mismo valor a X e Y para mantener la proporción
-	scale -= Vector2(shrink_speed, shrink_speed) * delta
+	#scale -= Vector2(shrink_speed, shrink_speed) * delta
 	
 	# 3. Eliminar si es muy pequeño (para que no se invierta y crezca al revés)
 	if scale.x <= 0.05:

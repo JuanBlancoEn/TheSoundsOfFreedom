@@ -1,20 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd5f2osyqi215"]
+[gd_scene load_steps=7 format=3 uid="uid://dd5f2osyqi215"]
 
-[ext_resource type="Script" uid="uid://dwb58nvgoqsf1" path="res://luz_p_2.gd" id="1_25cxp"]
+[ext_resource type="Shader" uid="uid://di1w1ejm52r25" path="res://Scenes/luz_p2.gdshader" id="1_gpys3"]
+[ext_resource type="Script" uid="uid://rxh4vowiufwn" path="res://Scripts/luz_p_2.gd" id="1_to1v1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpys3"]
+render_priority = 0
+shader = ExtResource("1_gpys3")
+shader_parameter/altura = 1.0
+shader_parameter/frecuencia = 2.0
+shader_parameter/velocidad = 1.0
 
 [sub_resource type="Gradient" id="Gradient_sibpx"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rjuqe"]
 gradient = SubResource("Gradient_sibpx")
 fill = 1
-fill_from = Vector2(0.060747664, 0.07476635)
-fill_to = Vector2(0.91588783, 0.11682243)
+fill_from = Vector2(0.0607477, 0.0747664)
+fill_to = Vector2(0.915888, 0.116822)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jw1fy"]
 radius = 7.28011
 
 [node name="LuzP2" type="Area2D"]
-script = ExtResource("1_25cxp")
+material = SubResource("ShaderMaterial_gpys3")
+script = ExtResource("1_to1v1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_rjuqe")
