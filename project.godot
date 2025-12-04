@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="TheSoundsOfFreedom"
-run/main_scene="uid://biag61xl3r21w"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="uid://dn6g15ji1muai"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]

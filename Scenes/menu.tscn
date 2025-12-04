@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://pwfw40b7eah4"]
+[gd_scene load_steps=6 format=3 uid="uid://dn6g15ji1muai"]
 
 [ext_resource type="Texture2D" uid="uid://b0cb4sqswbu0" path="res://resources/wallpaperAroLuz.jpg" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://d4kixx5v3akwg" path="res://Scripts/menu.gd" id="1_ouk20"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ouk20"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
 bg_color = Color(1, 1, 1, 1)
