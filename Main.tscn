@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=103 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://Scenes/mapa.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
@@ -672,7 +672,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_trn2v"]
-offsets = PackedFloat32Array(0.376623, 0.75974)
+offsets = PackedFloat32Array(0.376623, 0.428571)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_03owx"]
@@ -680,14 +680,20 @@ gradient = SubResource("Gradient_trn2v")
 fill = 1
 fill_from = Vector2(0.509174, 0.472477)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trn2v"]
+bg_color = Color(0.878431, 0.0392157, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03owx"]
+bg_color = Color(0.16156, 0.751843, 0.301087, 1)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Mapa" parent="." instance=ExtResource("1_uu6xs")]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-blend_mode = 1
+texture_filter = 1
 
 [node name="Diamantes" type="Node2D" parent="."]
+visibility_layer = 3
+z_index = 1
 
 [node name="Area2D" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(311, 172)
@@ -719,6 +725,9 @@ position = Vector2(459, 137)
 [node name="Area2D10" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(620, 158)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("personaje1")]
 position = Vector2(908, -7)
 script = ExtResource("6_20pc6")
@@ -735,6 +744,7 @@ sprite_frames = SubResource("SpriteFrames_kjvhd")
 animation = &"crouch"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+texture_filter = 1
 position = Vector2(110, 154)
 script = ExtResource("6_trn2v")
 
@@ -750,4 +760,15 @@ scale = Vector2(5, 5)
 zoom = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+energy = 2.3
 texture = SubResource("GradientTexture2D_03owx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 90.0
+offset_top = 64.0
+offset_right = 225.0
+offset_bottom = 91.0
+theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")

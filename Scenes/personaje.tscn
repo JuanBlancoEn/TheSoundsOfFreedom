@@ -585,7 +585,7 @@ frame = 2
 frame_progress = 0.662825
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
-position = Vector2(0, 4)
+position = Vector2(-108, -59)
 texture = SubResource("GradientTexture2D_gj0cs")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
