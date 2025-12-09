@@ -569,7 +569,7 @@ fill = 1
 fill_from = Vector2(0.509174, 0.509174)
 fill_to = Vector2(0.0733945, 0.944954)
 
-[node name="Personaje" type="Node2D"]
+[node name="Personaje" type="Node2D" groups=["Personaje"]]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(152, 100)

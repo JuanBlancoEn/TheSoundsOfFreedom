@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=104 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://Scenes/mapa.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character_body_2d.gd" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://dd5f2osyqi215" path="res://Scenes/luz_p2.tscn" id="7_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://bdo6ofvqkbaay" path="res://personaje/CrouchIdle.png" id="8_c6i3y"]
+[ext_resource type="PackedScene" uid="uid://cn3aurfyddtqk" path="res://Scenes/arana.tscn" id="9_03owx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
 
@@ -726,6 +727,7 @@ position = Vector2(459, 137)
 position = Vector2(620, 158)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("personaje1")]
@@ -772,3 +774,7 @@ offset_right = 225.0
 offset_bottom = 91.0
 theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")
+
+[node name="Arana" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(299, 63)
+scale = Vector2(0.240001, 0.240001)
