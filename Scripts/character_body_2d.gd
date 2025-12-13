@@ -37,6 +37,7 @@ func recibir_dano(cantidad: float):
 		#morir()
 
 func _physics_process(delta):
+	# 1. MOVIMIENTO (Lo que ya tenías)
 	var direccion = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if direccion:
@@ -47,6 +48,12 @@ func _physics_process(delta):
 		animated_sprite_2d.play("idle")
 
 	move_and_slide()
+	
+	# 2. DISPARO (AÑADE ESTO) ---------------------------------------
+	# Esto detecta si pulsas el clic izquierdo del ratón
+	if Input.is_action_just_pressed("ui_accept"):
+		shoot_wave()
+	
 
 func animacion(dir: Vector2):
 	var angulo = dir.angle()
@@ -88,4 +95,20 @@ func activar_super_luz():
 		tween_luz.tween_property(luz, "energy", 1.0, 5.0)\
 			.set_trans(Tween.TRANS_EXPO)\
 			.set_ease(Tween.EASE_OUT)
+			
+			# En el script de tu personaje
+@export var wave_scene: PackedScene # Asigna aquí la escena OndaProyectil.tscn
+
+func shoot_wave():
+	if wave_scene:
+		var wave = wave_scene.instantiate()
+		# Añadimos la onda a la escena principal, no como hijo del personaje
+		get_tree().current_scene.add_child(wave)
+		
+		# Calculamos la dirección de disparo (ej. hacia donde mira el ratón)
+		var mouse_pos = get_global_mouse_position()
+		var shoot_dir = (mouse_pos - global_position).normalized()
+		
+		# Iniciamos la onda en la posición del personaje y con la dirección calculada
+		wave.start(global_position, shoot_dir)
 		

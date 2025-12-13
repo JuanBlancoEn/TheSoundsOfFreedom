@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=105 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://Scenes/mapa.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cq8nenuv8l2vy" path="res://Scripts/2_personaje.gd" id="6_20pc6"]
 [ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character_body_2d.gd" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://dd5f2osyqi215" path="res://Scenes/luz_p2.tscn" id="7_5vvyt"]
+[ext_resource type="PackedScene" uid="uid://dhgi68t7tioe0" path="res://onda.tscn" id="7_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://bdo6ofvqkbaay" path="res://personaje/CrouchIdle.png" id="8_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://cn3aurfyddtqk" path="res://Scenes/arana.tscn" id="9_03owx"]
 
@@ -747,10 +748,12 @@ animation = &"crouch"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 texture_filter = 1
-position = Vector2(110, 154)
+position = Vector2(511, 493)
 script = ExtResource("6_trn2v")
+wave_scene = ExtResource("7_wkp8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(2, 4)
 shape = SubResource("CircleShape2D_lgr22")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]

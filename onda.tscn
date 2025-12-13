@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhgi68t7tioe0"]
+
+[ext_resource type="Script" uid="uid://brwer38wc3l8i" path="res://onda.gd" id="1_fc1jy"]
+[ext_resource type="Texture2D" uid="uid://caxrowpptucdc" path="res://pngtree-solid-black-wifi-symbol-png-image_11928475.png" id="2_t8r57"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rayyq"]
+
+[node name="Onda" type="CharacterBody2D"]
+script = ExtResource("1_fc1jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.9999995, -3.49246e-10)
+rotation = 1.5702223
+scale = Vector2(0.18917757, 0.18917757)
+texture = ExtResource("2_t8r57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rayyq")
