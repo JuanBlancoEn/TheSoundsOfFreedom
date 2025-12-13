@@ -5,9 +5,14 @@ extends CharacterBody2D
 @onready var luz: PointLight2D = $PointLight2D 
 
 @onready var  barra_vida: ProgressBar = $"../CanvasLayer/ProgressBar"
+@onready var bullet_spawner: Node2D = $bulletSpawner
+
 
 @export var velocidad : float = 150.0
-
+@export var bullet_scene: PackedScene = preload("res://Scenes/bullet.tscn")
+func _input(event: InputEvent) -> void:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			shoot()
 # Variable para guardar el tween actual (por si coges otro diamante antes de acabar)
 var tween_luz: Tween
 var vida_maxima: float = 100.0
@@ -89,3 +94,31 @@ func activar_super_luz():
 			.set_trans(Tween.TRANS_EXPO)\
 			.set_ease(Tween.EASE_OUT)
 		
+func shoot():
+	# ... (tus comprobaciones de seguridad e instancias anteriores) ...
+	if bullet_spawner == null: return
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = bullet_spawner.global_position
+
+	# --- 1. CONFIGURACIÓN DE REBOTE MÁXIMO ---
+	# Creamos un material físico nuevo "al vuelo"
+	var material_rebote = PhysicsMaterial.new()
+	material_rebote.bounce = 1.0   # 1.0 es el máximo (rebote perfecto)
+	material_rebote.friction = 0.0 # 0.0 para que no pierda velocidad al rozar paredes
+	
+	# Se lo aplicamos a la bala
+	if bullet is RigidBody2D:
+		bullet.physics_material_override = material_rebote
+		bullet.gravity_scale = 0.0 # Aseguramos que no caiga
+		# Bloqueamos la rotación para que el rebote sea más predecible (opcional)
+		bullet.lock_rotation = true 
+
+	# ... (resto de cálculo de dirección y velocidad) ...
+	var direction = (get_global_mouse_position() - bullet_spawner.global_position).normalized()
+	bullet.linear_velocity = direction * 800.0 
+	
+	get_tree().current_scene.add_child(bullet)
+	get_tree().create_timer(2.0).timeout.connect(bullet.queue_free)
+	
+	# --- 2. EVITAR QUE CHOQUE CON EL PERSONAJE ---
+	bullet.add_collision_exception_with(self)

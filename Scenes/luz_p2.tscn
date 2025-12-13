@@ -26,6 +26,7 @@ material = SubResource("ShaderMaterial_gpys3")
 script = ExtResource("1_to1v1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.36, 1.36)
 texture = SubResource("GradientTexture2D_rjuqe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cf03ciwgjnpiu" path="res://personaje/Idle3.png" id="4_03owx"]
 [ext_resource type="Texture2D" uid="uid://c1dce65lo3vwb" path="res://personaje/Walk.png" id="5_wkp8b"]
 [ext_resource type="Script" uid="uid://cq8nenuv8l2vy" path="res://Scripts/2_personaje.gd" id="6_20pc6"]
-[ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character_body_2d.gd" id="6_trn2v"]
+[ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character.gd" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://dd5f2osyqi215" path="res://Scenes/luz_p2.tscn" id="7_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://bdo6ofvqkbaay" path="res://personaje/CrouchIdle.png" id="8_c6i3y"]
-[ext_resource type="PackedScene" uid="uid://cn3aurfyddtqk" path="res://Scenes/arana.tscn" id="9_03owx"]
+[ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="9_03owx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
 
@@ -734,7 +734,7 @@ blend_mode = 1
 position = Vector2(908, -7)
 script = ExtResource("6_20pc6")
 luz_p2 = ExtResource("7_5vvyt")
-personaje1 = NodePath("../CharacterBody2D")
+personaje1 = NodePath("../Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_sc1dx")
@@ -745,25 +745,30 @@ scale = Vector2(0.347656, 0.433594)
 sprite_frames = SubResource("SpriteFrames_kjvhd")
 animation = &"crouch"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Character" type="CharacterBody2D" parent="." groups=["character"]]
 texture_filter = 1
 position = Vector2(110, 154)
 script = ExtResource("6_trn2v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
 shape = SubResource("CircleShape2D_lgr22")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
 sprite_frames = SubResource("SpriteFrames_j4qnp")
 animation = &"walk_right"
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Character"]
 scale = Vector2(5, 5)
 zoom = Vector2(3, 3)
 
-[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Character"]
 energy = 2.3
 texture = SubResource("GradientTexture2D_03owx")
+
+[node name="bulletSpawner" type="Node2D" parent="Character"]
+position = Vector2(1, -1)
+
+[node name="Marker2D" type="Marker2D" parent="Character/bulletSpawner"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -775,6 +780,6 @@ offset_bottom = 91.0
 theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")
 
-[node name="Arana" parent="." instance=ExtResource("9_03owx")]
-position = Vector2(299, 63)
-scale = Vector2(0.240001, 0.240001)
+[node name="araña" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(330, 67)
+scale = Vector2(0.2, 0.2)

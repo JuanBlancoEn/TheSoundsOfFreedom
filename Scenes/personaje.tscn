@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://dwxdvduxauimv"]
 
-[ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character_body_2d.gd" id="1_yppqc"]
+[ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character.gd" id="1_yppqc"]
 [ext_resource type="Texture2D" uid="uid://cf03ciwgjnpiu" path="res://personaje/Idle3.png" id="2_gj0cs"]
 [ext_resource type="Texture2D" uid="uid://c1dce65lo3vwb" path="res://personaje/Walk.png" id="3_ck3sb"]
 
@@ -569,16 +569,17 @@ fill = 1
 fill_from = Vector2(0.509174, 0.509174)
 fill_to = Vector2(0.0733945, 0.944954)
 
-[node name="Personaje" type="Node2D" groups=["Personaje"]]
+[node name="Personaje" type="Node2D" groups=["character"]]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["character"]]
+modulate = Color(0.203922, 0.00392157, 1, 1)
 position = Vector2(152, 100)
 script = ExtResource("1_yppqc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["character"]]
 shape = SubResource("CircleShape2D_cx4ix")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" groups=["character"]]
 sprite_frames = SubResource("SpriteFrames_fj5bu")
 animation = &"walk_right"
 frame = 2
@@ -589,3 +590,8 @@ position = Vector2(-108, -59)
 texture = SubResource("GradientTexture2D_gj0cs")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="bulletSpawner" type="Node2D" parent="CharacterBody2D"]
+position = Vector2(1, -1)
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D/bulletSpawner"]
