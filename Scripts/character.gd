@@ -17,6 +17,7 @@ func _input(event: InputEvent) -> void:
 var tween_luz: Tween
 var vida_maxima: float = 100.0
 var vida_actual: float = 100.0
+var diamantes:int =0;
 func _ready():
 	# Configuración inicial de la barra al empezar el juego
 	if barra_vida:
@@ -137,3 +138,5 @@ func shoot():
 	
 	# --- 2. EVITAR QUE CHOQUE CON EL PERSONAJE ---
 	bullet.add_collision_exception_with(self)
+func plus1Diamante():
+	diamantes+=1

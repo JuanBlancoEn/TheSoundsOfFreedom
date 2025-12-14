@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="1_2jh14"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70f7c"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_goa42"]
 texture = ExtResource("1_2jh14")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -198,7 +198,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_70f7c")
+sources/0 = SubResource("TileSetAtlasSource_goa42")
 
 [node name="Mapa" type="Node2D"]
 
