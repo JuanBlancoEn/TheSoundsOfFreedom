@@ -50,8 +50,23 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, velocidad)
 		animated_sprite_2d.play("idle")
+		
+	
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var colision = get_slide_collision(i)
+		var objeto_tocado = colision.get_collider()
+		
+		# Verificamos si lo que tocamos es un RigidBody (la caja)
+		if objeto_tocado is RigidBody2D:
+			# Calculamos la dirección del empuje (inversa a la normal del choque)
+			var direccion_empuje = -colision.get_normal()
+			
+			# Aplicamos fuerza. Ajusta el '50.0' si quieres más o menos fuerza.
+			# Usamos 'apply_central_impulse' para un empujón instantáne
+			objeto_tocado.apply_central_impulse(direccion_empuje)
 
 func animacion(dir: Vector2):
 	var angulo = dir.angle()
