@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var onda: AnimatedSprite2D = $Onda
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 # Asegúrate de que el nodo de luz se llame exactamente así o arrástralo aquí
 @onready var luz: PointLight2D = $PointLight2D 
@@ -20,6 +21,7 @@ var vida_actual: float = 100.0
 var diamantes:int =0;
 func _ready():
 	# Configuración inicial de la barra al empezar el juego
+	onda.play("idle")
 	if barra_vida:
 		barra_vida.max_value = vida_maxima
 		barra_vida.value = vida_actual
@@ -52,8 +54,7 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, velocidad)
 		animated_sprite_2d.play("idle")
 		
-	
-
+		
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
@@ -63,7 +64,7 @@ func _physics_process(delta):
 		# Verificamos si lo que tocamos es un RigidBody (la caja)
 		if objeto_tocado is RigidBody2D:
 			# Calculamos la dirección del empuje (inversa a la normal del choque)
-			var direccion_empuje = -colision.get_normal()
+			var direccion_empuje = -colision.get_normal() * 800
 			
 			# Aplicamos fuerza. Ajusta el '50.0' si quieres más o menos fuerza.
 			# Usamos 'apply_central_impulse' para un empujón instantáne
@@ -82,6 +83,9 @@ func animacion(dir: Vector2):
 	animated_sprite_2d.play(anim_names[index])
 # --- NUEVA FUNCIÓN PARA EL EFECTO DEL DIAMANTE ---
 func activar_super_luz():
+	onda.stop()
+	onda.play("super_onda")
+
 	if luz:
 		# 1. Limpieza: Si ya hay una animación activa, la detenemos
 		if tween_luz:
@@ -110,6 +114,7 @@ func activar_super_luz():
 			.set_trans(Tween.TRANS_EXPO)\
 			.set_ease(Tween.EASE_OUT)
 		
+		
 func shoot():
 	# ... (tus comprobaciones de seguridad e instancias anteriores) ...
 	if bullet_spawner == null: return
@@ -131,13 +136,14 @@ func shoot():
 
 	# ... (resto de cálculo de dirección y velocidad) ...
 	var direction = (get_global_mouse_position() - bullet_spawner.global_position).normalized()
-	bullet.linear_velocity = direction * 800.0 
+	bullet.linear_velocity = direction * 80.0 
 	
 	get_tree().current_scene.add_child(bullet)
 	get_tree().create_timer(2.0).timeout.connect(bullet.queue_free)
 	
 	# --- 2. EVITAR QUE CHOQUE CON EL PERSONAJE ---
 	bullet.add_collision_exception_with(self)
+
 func plus1Diamante():
 	diamantes+=1
 	print(diamantes)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=10 format=4 uid="uid://dw418fl83e3vp"]
 
-[ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
+[ext_resource type="Script" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
 [ext_resource type="Texture2D" uid="uid://dfpl4o23r0fv5" path="res://resources/Harvest Sumer Free Ver. Pack/tilesets/fences and ladders etc.png" id="3_3k463"]
-[ext_resource type="PackedScene" uid="uid://7e2fnagiornl" path="res://Scenes/character.tscn" id="4_esb8b"]
+[ext_resource type="PackedScene" uid="uid://bxepjh4neiyi4" path="res://Scenes/character.tscn" id="4_esb8b"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="4_y44iy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vbk7"]

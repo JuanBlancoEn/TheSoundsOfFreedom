@@ -1,4 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2qhyu0nca7bf"]
+[gd_scene load_steps=8 format=3 uid="uid://c2qhyu0nca7bf"]
+
+[ext_resource type="Script" uid="uid://hsb8uyacba2x" path="res://Scenes/onda_bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://cwu1o0g3upeva" path="res://ondas/onda.png" id="1_xjght"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ycag2"]
 
 [sub_resource type="Gradient" id="Gradient_4mw4s"]
 offsets = PackedFloat32Array(0.409091, 0.727273)
@@ -17,6 +22,10 @@ radius = 26.3059
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_ycag2")
+gravity_scale = 0.0
+script = ExtResource("1_oduel")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.48, 0.48)
@@ -30,3 +39,7 @@ shape = SubResource("CircleShape2D_oduel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ycag2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_xjght")
