@@ -1,6 +1,6 @@
 [gd_scene load_steps=104 format=3 uid="uid://biag61xl3r21w"]
 
-[ext_resource type="PackedScene" uid="uid://d01pgp6qmrcqd" path="res://Scenes/mapa.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://7wp7w7lpvtk0" path="res://mapa.tscn" id="1_03owx"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://cf03ciwgjnpiu" path="res://personaje/Idle3.png" id="4_03owx"]
 [ext_resource type="Texture2D" uid="uid://c1dce65lo3vwb" path="res://personaje/Walk.png" id="5_wkp8b"]
@@ -689,8 +689,7 @@ bg_color = Color(0.16156, 0.751843, 0.301087, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Mapa" parent="." instance=ExtResource("1_uu6xs")]
-texture_filter = 1
+[node name="Mapa" parent="." instance=ExtResource("1_03owx")]
 
 [node name="Diamantes" type="Node2D" parent="."]
 visibility_layer = 3
@@ -747,7 +746,9 @@ animation = &"crouch"
 
 [node name="Character" type="CharacterBody2D" parent="." groups=["character"]]
 texture_filter = 1
-position = Vector2(110, 154)
+position = Vector2(400, 419)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("6_trn2v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
