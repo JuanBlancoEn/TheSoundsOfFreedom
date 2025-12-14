@@ -140,3 +140,5 @@ func shoot():
 	bullet.add_collision_exception_with(self)
 func plus1Diamante():
 	diamantes+=1
+	print(diamantes)
+	

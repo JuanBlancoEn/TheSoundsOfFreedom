@@ -5,7 +5,7 @@ func _on_body_entered(body) -> void:
 		
 		# Ejecutamos la función en el personaje
 		body.activar_super_luz()
-		body.plus1Diamante
+		body.plus1Diamante()
 		print("¡Diamante recogido! Efecto activado.")
 			
 		# Borramos el diamante
