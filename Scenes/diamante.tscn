@@ -1,21 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj5pkwiilh3ii"]
+[gd_scene load_steps=11 format=3 uid="uid://dj5pkwiilh3ii"]
 
 [ext_resource type="Script" uid="uid://kt0vchbxeprm" path="res://Scripts/diamante.gd" id="1_2jy7h"]
-[ext_resource type="Texture2D" uid="uid://dg4yg06rf6bjs" path="res://resources/Items/items_sheet.png" id="1_3gpf5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2jy7h"]
-atlas = ExtResource("1_3gpf5")
-region = Rect2(96, 176, 16, 16)
+[ext_resource type="Texture2D" uid="uid://cgwhtkji44ptc" path="res://resources/Items/gem_large/frame0000.png" id="2_qvpxw"]
+[ext_resource type="Texture2D" uid="uid://bbdoevufih1rh" path="res://resources/Items/gem_large/frame0001.png" id="3_albke"]
+[ext_resource type="Texture2D" uid="uid://c44nepydlkt33" path="res://resources/Items/gem_large/frame0002.png" id="4_7m0bo"]
+[ext_resource type="Texture2D" uid="uid://bsjvcr6e17qwn" path="res://resources/Items/gem_large/frame0003.png" id="5_u3824"]
+[ext_resource type="Texture2D" uid="uid://dv8mgwor64biv" path="res://resources/Items/gem_large/frame0004.png" id="6_0yivx"]
+[ext_resource type="Texture2D" uid="uid://ch1o6sqqg5q8l" path="res://resources/Items/gem_large/frame0005.png" id="7_bvweg"]
+[ext_resource type="Texture2D" uid="uid://hf06eac0cw0g" path="res://resources/Items/gem_large/frame0006.png" id="8_fwun2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ofq7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2jy7h")
+"texture": ExtResource("2_qvpxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_albke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7m0bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u3824")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0yivx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bvweg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fwun2")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"rotating",
+"speed": 13.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71fly"]
@@ -26,7 +46,10 @@ script = ExtResource("1_2jy7h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(0.44, 0.44)
 sprite_frames = SubResource("SpriteFrames_8ofq7")
+animation = &"rotating"
+frame_progress = 0.976187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_71fly")

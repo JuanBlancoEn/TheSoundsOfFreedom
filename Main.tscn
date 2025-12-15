@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
 [ext_resource type="Script" uid="uid://cq8nenuv8l2vy" path="res://Scripts/2_personaje.gd" id="6_20pc6"]
 [ext_resource type="PackedScene" uid="uid://dd5f2osyqi215" path="res://Scenes/luz_p2.tscn" id="7_5vvyt"]
-[ext_resource type="PackedScene" uid="uid://bxepjh4neiyi4" path="res://Scenes/character.tscn" id="7_trn2v"]
+[ext_resource type="PackedScene" uid="uid://7e2fnagiornl" path="res://Scenes/character.tscn" id="7_trn2v"]
 [ext_resource type="Texture2D" uid="uid://bdo6ofvqkbaay" path="res://personaje/CrouchIdle.png" id="8_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="9_03owx"]
-[ext_resource type="PackedScene" uid="uid://dw418fl83e3vp" path="res://Scenes/mapa2.tscn" id="9_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://db13bh1l8idqd" path="res://Scenes/mapa2.tscn" id="9_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="10_wkp8b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]

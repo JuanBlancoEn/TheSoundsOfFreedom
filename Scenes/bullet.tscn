@@ -18,7 +18,7 @@ fill_from = Vector2(0.509174, 0.46789)
 radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycag2"]
-radius = 26.3059
+radius = 18.0278
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2
@@ -43,3 +43,5 @@ shape = SubResource("CircleShape2D_ycag2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
 texture = ExtResource("1_xjght")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

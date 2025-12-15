@@ -11,3 +11,8 @@ func _process(delta):
 		# Rotamos solo la IMAGEN para que apunte hacia donde vamos.
 		# Usamos 'global_rotation' para ignorar la rotación del padre.
 		sprite_2d.global_rotation = linear_velocity.angle()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body.damage(10)

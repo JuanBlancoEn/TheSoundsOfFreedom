@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn6g15ji1muai"]
+[gd_scene load_steps=8 format=3 uid="uid://dn6g15ji1muai"]
 
 [ext_resource type="Texture2D" uid="uid://b0cb4sqswbu0" path="res://resources/wallpaperAroLuz.jpg" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://d4kixx5v3akwg" path="res://Scripts/menu.gd" id="1_ouk20"]
+[ext_resource type="FontFile" uid="uid://bekfs0th3r7mi" path="res://resources/x256_Spritesheets/Die1/Ferrum-wy99.otf" id="3_158mb"]
+[ext_resource type="FontFile" uid="uid://vedvcmkklg23" path="res://resources/x256_Spritesheets/Die1/AerologicaRegular-K7day.ttf" id="3_cayip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
 bg_color = Color(1, 1, 1, 1)
@@ -42,40 +44,54 @@ stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -164.5
-offset_top = -110.5
-offset_right = 164.5
-offset_bottom = 110.5
+anchors_preset = -1
+anchor_left = -0.694444
+anchor_top = -0.753858
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1280.0
+offset_top = 872.5
+offset_right = -448.0
+offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.840001, 0.759999)
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="LEVEL1" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_158mb")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
-text = "JUGAR"
+text = "level 1"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="LEVEL2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_158mb")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
-text = "OPCIONES"
+text = "level 2"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_158mb")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
-text = "SALIR"
+text = "exit"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 999.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("3_cayip")
+theme_override_font_sizes/font_size = 71
+text = "THE SOUNDS OF FREEDOM"
+
+[connection signal="pressed" from="VBoxContainer/LEVEL1" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/LEVEL2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
