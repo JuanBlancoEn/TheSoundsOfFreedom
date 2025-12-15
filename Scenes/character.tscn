@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bxepjh4neiyi4"]
+[gd_scene load_steps=88 format=3 uid="uid://7e2fnagiornl"]
 
 [ext_resource type="Script" uid="uid://cilx2ki50nueq" path="res://Scripts/character.gd" id="1_owm7s"]
 [ext_resource type="Texture2D" uid="uid://cf03ciwgjnpiu" path="res://personaje/Idle3.png" id="2_nytcm"]
@@ -333,6 +333,11 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h755h")
@@ -627,7 +632,7 @@ shape = SubResource("RectangleShape2D_wkp8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j4qnp")
-animation = &"walk_right"
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(5, 5)

@@ -12,7 +12,15 @@ func _process(delta):
 		# Usamos 'global_rotation' para ignorar la rotación del padre.
 		sprite_2d.global_rotation = linear_velocity.angle()
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		body.damage(10)
+	
+	# --- CAMBIO AQUÍ ---
+	if body.is_in_group("chest"):
+		# Primero intentamos ver si el cuerpo tiene la función (por si acaso)
+		if body.has_method("hit"):
+			body.hit(1)
+		# Si no, buscamos en el PADRE del cuerpo, que es donde tienes tu script
+		elif body.get_parent().has_method("hit"):
+			body.get_parent().hit(1)

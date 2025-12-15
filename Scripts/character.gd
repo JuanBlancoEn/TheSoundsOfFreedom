@@ -18,7 +18,8 @@ func _input(event: InputEvent) -> void:
 var tween_luz: Tween
 var vida_maxima: float = 100.0
 var vida_actual: float = 100.0
-var diamantes:int =0;
+var diamantes:int =0
+var killed_spiders:int=0
 func _ready():
 	# Configuración inicial de la barra al empezar el juego
 	onda.play("idle")
@@ -41,8 +42,8 @@ func recibir_dano(cantidad: float):
 		
 	print("Vida actual: ", vida_actual)
 	
-	#if vida_actual == 0:
-		#morir()
+	if vida_actual == 0:
+		morir()
 
 func _physics_process(delta):
 	var direccion = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -147,4 +148,18 @@ func shoot():
 func plus1Diamante():
 	diamantes+=1
 	print(diamantes)
+func morir():
+	print("💀 Jugador eliminado. Reiniciando nivel...")
 	
+	# Opcional: Desactivar movimiento para que no se mueva el "cadáver"
+	set_physics_process(false) 
+	
+	# Opción A: Reinicio INSTANTÁNEO (descomenta si prefieres esto)
+	# get_tree().reload_current_scene()
+	
+	# Opción B: Reinicio con un pequeño retraso (0.5 segundos)
+	# Esto se siente mejor para el jugador
+	get_tree().create_timer(0.5).timeout.connect(get_tree().reload_current_scene)
+func registrar_muerte_arana():
+	killed_spiders += 1
+	print("1 araña menos")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj5pkwiilh3ii"]
+[gd_scene load_steps=13 format=3 uid="uid://dj5pkwiilh3ii"]
 
 [ext_resource type="Script" uid="uid://kt0vchbxeprm" path="res://Scripts/diamante.gd" id="1_2jy7h"]
 [ext_resource type="Texture2D" uid="uid://cgwhtkji44ptc" path="res://resources/Items/gem_large/frame0000.png" id="2_qvpxw"]
@@ -41,6 +41,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_71fly"]
 radius = 8.0
 
+[sub_resource type="Gradient" id="Gradient_qvpxw"]
+offsets = PackedFloat32Array(0, 0.766234)
+colors = PackedColorArray(0.954545, 0.954545, 0.954545, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_albke"]
+gradient = SubResource("Gradient_qvpxw")
+fill = 1
+fill_from = Vector2(0.518349, 0.518349)
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_2jy7h")
 
@@ -53,5 +62,9 @@ frame_progress = 0.976187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_71fly")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.547151, 0.547151)
+texture = SubResource("GradientTexture2D_albke")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

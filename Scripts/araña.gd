@@ -11,6 +11,7 @@ var target: Node2D = null
 var is_attacking: bool = false
 var life: int = 20
 var is_moving: bool = true
+var is_alive:bool=true
 
 # --- VARIABLES NUEVAS PARA EL ATAQUE ---
 var attack_victim: Node2D = null # Guardamos a quién pegar
@@ -90,10 +91,24 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 		is_attacking = false
 		attack_victim = null # Olvidamos a la víctima
 		
-func damage(damage_amount: int) -> void: # Cambié el nombre del argumento para evitar confusión
+func damage(damage_amount: int) -> void:
 	life -= damage_amount
+	
 	if life <= 0:
+		# Lógica existente de muerte
 		is_moving = false
 		sprite.play("die")
-		# Tu timer de muerte (ajustado a tu gusto)
+		
+		
+		# --- NUEVO: AVISAR AL JUGADOR ---
+		# Buscamos el nodo del jugador usando el grupo "character"
+		var player = get_tree().get_first_node_in_group("character")
+		
+		# Si existe el jugador y tiene la función, la ejecutamos
+		if player and player.has_method("registrar_muerte_arana") and is_alive:
+			is_alive=false
+			player.registrar_muerte_arana()
+		# -------------------------------
+
+		# Tu timer para desaparecer
 		get_tree().create_timer(1.40).timeout.connect(queue_free)

@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://ci20lv50xv3lv"]
+
+[ext_resource type="Script" uid="uid://bc6wj1hx35t3w" path="res://torch.gd" id="1_h1t0l"]
+[ext_resource type="Texture2D" uid="uid://bwexx8neipdx8" path="res://resources/Torch Animated.png" id="2_beu3c"]
+
+[sub_resource type="Gradient" id="Gradient_wrk4u"]
+offsets = PackedFloat32Array(0.337662, 0.636364)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2f8pb"]
+gradient = SubResource("Gradient_wrk4u")
+fill = 1
+fill_from = Vector2(0.486239, 0.513761)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spjw2"]
+size = Vector2(16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg6dd"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ufd5"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05x6m"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d43v6"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e64sw"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1y4a"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjdc7"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs836"]
+atlas = ExtResource("2_beu3c")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li82y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg6dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ufd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05x6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d43v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e64sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1y4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjdc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs836")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_h1t0l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(2.46047, 2.46047)
+texture = SubResource("GradientTexture2D_2f8pb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 8.5)
+shape = SubResource("RectangleShape2D_spjw2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_li82y")
+frame_progress = 0.300302
