@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=33 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -9,11 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="7_y44iy"]
 [ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="8_5vbk7"]
 [ext_resource type="PackedScene" uid="uid://dab7o8mg7w2ta" path="res://Scenes/chest.tscn" id="9_cmyl0"]
+[ext_resource type="Script" uid="uid://2hflt6x7ufny" path="res://Scenes/torreta.gd" id="9_essts"]
+[ext_resource type="Texture2D" uid="uid://ctkxxldpsx743" path="res://resources/shooter/shooter.png" id="9_o6vom"]
+[ext_resource type="PackedScene" uid="uid://xgemoqeq1757" path="res://Scenes/large_bullet.tscn" id="10_mfquy"]
 [ext_resource type="PackedScene" uid="uid://c7twg1utjvxmx" path="res://Scenes/dialogo2.tscn" id="10_mx7q7"]
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="11_4ka3b"]
 [ext_resource type="Script" uid="uid://h4jtmhojxbev" path="res://Scenes/placa.gd" id="12_cjn1c"]
 [ext_resource type="Texture2D" uid="uid://dr1ifc3gv1kjw" path="res://resources/placas/placa1.png" id="13_nls2a"]
 [ext_resource type="Texture2D" uid="uid://cc5otcyabtqx7" path="res://resources/placas/placa2.png" id="14_o6vom"]
+[ext_resource type="Texture2D" uid="uid://dqsmexlmhigfn" path="res://resources/espejos/espejo2.png" id="15_nls2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vbk7"]
 texture = ExtResource("2_esb8b")
@@ -207,7 +211,8 @@ texture = ExtResource("2_esb8b")
 8:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cmyl0"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 129
+physics_layer_0/collision_mask = 129
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -275,24 +280,6 @@ texture = ExtResource("3_3k463")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mx7q7")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esb8b"]
-bg_color = Color(0.878431, 0.0392157, 0.262745, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3k463"]
-bg_color = Color(0.16156, 0.751843, 0.301087, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3k463"]
-light_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cmyl0"]
-light_mode = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx7q7"]
-size = Vector2(75, 12.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckh4t"]
-size = Vector2(13, 14)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_essts"]
 size = Vector2(13.5, 2.5)
 
@@ -314,6 +301,30 @@ animations = [{
 "name": &"on",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckh4t"]
+size = Vector2(13, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7d3"]
+size = Vector2(6.306122, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfquy"]
+size = Vector2(11, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esb8b"]
+bg_color = Color(0.878431, 0.0392157, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3k463"]
+bg_color = Color(0.16156, 0.751843, 0.301087, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3k463"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cmyl0"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx7q7"]
+size = Vector2(75, 12.5)
 
 [node name="Node2D2" type="Node2D" groups=["map2"]]
 script = ExtResource("1_b7k0e")
@@ -342,8 +353,93 @@ modulate = Color(0.850529, 0.829852, 0.0654677, 1)
 tile_map_data = PackedByteArray("AAATAMr/AAAGAAQAAAAUAMr/AAAGAAQAAAAVAMr/AAAGAAQAAAA=")
 tile_set = SubResource("TileSet_4ka3b")
 
+[node name="Placa" type="Area2D" parent="."]
+position = Vector2(822, 30)
+script = ExtResource("12_cjn1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placa"]
+position = Vector2(0.25, 3.25)
+shape = SubResource("RectangleShape2D_essts")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Placa"]
+sprite_frames = SubResource("SpriteFrames_mfquy")
+animation = &"off"
+
+[node name="Caja" type="RigidBody2D" parent="."]
+position = Vector2(731, 19)
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caja"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_ckh4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caja"]
+position = Vector2(-2, -1.99999)
+scale = Vector2(1.02382, 0.944318)
+texture = ExtResource("11_4ka3b")
+hframes = 4
+vframes = 3
+
+[node name="Espejo" type="Node2D" parent="."]
+
+[node name="Hitbox1" type="RigidBody2D" parent="Espejo"]
+position = Vector2(531, -104)
+collision_layer = 128
+collision_mask = 128
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Espejo/Hitbox1"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_ckh4t")
+
+[node name="Espejo2" type="Sprite2D" parent="Espejo/Hitbox1"]
+position = Vector2(0, -3)
+texture = ExtResource("15_nls2a")
+
+[node name="Hitbox2" type="RigidBody2D" parent="Espejo"]
+position = Vector2(530, -107)
+collision_layer = 16
+collision_mask = 16
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 50.0
+
+[node name="ColisionEspejo" type="CollisionShape2D" parent="Espejo/Hitbox2"]
+rotation = 0.3980633
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_wu7d3")
+
+[node name="Torreta" type="StaticBody2D" parent="."]
+position = Vector2(409.99994, -108)
+rotation = -1.5648907
+script = ExtResource("9_essts")
+bala_escena = ExtResource("10_mfquy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torreta"]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_mfquy")
+
+[node name="Shooter" type="Sprite2D" parent="Torreta"]
+position = Vector2(1, 2)
+texture = ExtResource("9_o6vom")
+
+[node name="bulletSpawner" type="Node2D" parent="Torreta"]
+position = Vector2(0.011839747, 1.9999678)
+
+[node name="Marker2D" type="Marker2D" parent="Torreta/bulletSpawner"]
+
+[node name="Timer" type="Timer" parent="Torreta"]
+wait_time = 5.0
+autostart = true
+
 [node name="Character" parent="." instance=ExtResource("4_esb8b")]
 position = Vector2(430, 591)
+collision_layer = 147
+collision_mask = 147
 
 [node name="Diamantes" type="Node2D" parent="."]
 
@@ -617,40 +713,11 @@ scale = Vector2(0.76, 0.76)
 
 [node name="areaFinal" type="Area2D" parent="."]
 position = Vector2(-241, -161)
-rotation = 0.308939
+rotation = 0.30893904
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areaFinal"]
 position = Vector2(331, -871)
 shape = SubResource("RectangleShape2D_mx7q7")
 
-[node name="Caja" type="RigidBody2D" parent="."]
-position = Vector2(715, 25)
-mass = 5.0
-gravity_scale = 0.0
-linear_damp = 50.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Caja"]
-position = Vector2(-0.5, -3)
-shape = SubResource("RectangleShape2D_ckh4t")
-
-[node name="Sprite2D" type="Sprite2D" parent="Caja"]
-position = Vector2(-2, -1.99999)
-scale = Vector2(1.02382, 0.944318)
-texture = ExtResource("11_4ka3b")
-hframes = 4
-vframes = 3
-
-[node name="Placa" type="Area2D" parent="."]
-position = Vector2(822, 30)
-script = ExtResource("12_cjn1c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Placa"]
-position = Vector2(0.25, 3.25)
-shape = SubResource("RectangleShape2D_essts")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Placa"]
-sprite_frames = SubResource("SpriteFrames_mfquy")
-animation = &"off"
-
-[connection signal="body_entered" from="areaFinal" to="." method="_on_area_final_body_entered"]
 [connection signal="body_entered" from="Placa" to="Placa" method="_on_body_entered"]
+[connection signal="body_entered" from="areaFinal" to="." method="_on_area_final_body_entered"]

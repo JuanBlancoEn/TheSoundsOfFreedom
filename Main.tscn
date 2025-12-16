@@ -203,7 +203,6 @@ vframes = 3
 
 [node name="Character" parent="." instance=ExtResource("7_trn2v")]
 position = Vector2(199, 140)
-motion_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

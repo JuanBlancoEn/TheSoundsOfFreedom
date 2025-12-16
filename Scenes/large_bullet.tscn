@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2qhyu0nca7bf"]
+[gd_scene load_steps=8 format=3 uid="uid://xgemoqeq1757"]
 
-[ext_resource type="Script" uid="uid://hsb8uyacba2x" path="res://Scenes/onda_bullet.gd" id="1_oduel"]
-[ext_resource type="Texture2D" uid="uid://cwu1o0g3upeva" path="res://ondas/onda.png" id="1_xjght"]
+[ext_resource type="Script" uid="uid://dv2n8fb5b5t1j" path="res://Scenes/large_bullet.gd" id="1_bgyq8"]
+[ext_resource type="Texture2D" uid="uid://bbbf7fe06770y" path="res://ondas/onda_larga.png" id="2_4ckh3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ycag2"]
 
@@ -15,21 +15,22 @@ fill = 1
 fill_from = Vector2(0.509174, 0.46789)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oduel"]
-radius = 7.07107
+radius = 13.16637
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycag2"]
-radius = 18.0278
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anrci"]
+radius = 9.999876
+height = 37.99953
 
 [node name="RigidBody2D" type="RigidBody2D"]
-collision_layer = 18
+collision_layer = 17
 collision_mask = 17
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ycag2")
 gravity_scale = 0.0
-script = ExtResource("1_oduel")
+script = ExtResource("1_bgyq8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.48, 0.48)
+scale = Vector2(0.63062495, 0.36499998)
 texture = SubResource("GradientTexture2D_xjght")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,12 +38,17 @@ scale = Vector2(0.987364, -0.396494)
 shape = SubResource("CircleShape2D_oduel")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_ycag2")
+position = Vector2(-3.330669e-16, 1.7881393e-07)
+rotation = -1.5658103
+shape = SubResource("CapsuleShape2D_anrci")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-texture = ExtResource("1_xjght")
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(2.0000002, 1.125)
+texture = ExtResource("2_4ckh3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
