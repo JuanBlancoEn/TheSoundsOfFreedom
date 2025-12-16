@@ -70,6 +70,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character"): 
 		print("✅ ¡ES EL JUGADOR! Objetivo fijado.")
 		target = body
+		AudioManager.change_to_combat()
 	else:
 		print("❌ No es el jugador")
 
@@ -77,6 +78,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == target:
 		target = null
 		print("💨 El objetivo se escapó.")
+		AudioManager.change_to_exploration()
 
 # --- SEÑALES DE ATAQUE (MODIFICADAS) ---
 
