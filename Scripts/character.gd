@@ -141,6 +141,7 @@ func shoot():
 		var direction = (get_global_mouse_position() - bullet_spawner.global_position).normalized()
 		bullet.linear_velocity = direction * 80.0 
 		
+		AudioManager.shoot_bullet()
 		get_tree().current_scene.add_child(bullet)
 		get_tree().create_timer(2.0).timeout.connect(bullet.queue_free)
 		

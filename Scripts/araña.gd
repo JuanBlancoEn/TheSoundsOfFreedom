@@ -100,6 +100,7 @@ func damage(damage_amount: int) -> void:
 		# Lógica existente de muerte
 		is_moving = false
 		sprite.play("die")
+		AudioManager.kill_spider()
 		
 		
 		# --- NUEVO: AVISAR AL JUGADOR ---
