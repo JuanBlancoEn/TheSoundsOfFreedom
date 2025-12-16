@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dab7o8mg7w2ta"]
+[gd_scene load_steps=28 format=3 uid="uid://dab7o8mg7w2ta"]
 
 [ext_resource type="Script" uid="uid://dgtvkq37utcfa" path="res://chest.gd" id="1_qhimo"]
 [ext_resource type="Texture2D" uid="uid://mh1j0qc4fg76" path="res://resources/Chest_v1.0/Chest/Hit/HitChest.png" id="2_cqn7c"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dbryp5yhs1yue" path="res://resources/Chest_v1.0/Chest/Open/Gold/Open(GoldLoot)10.png" id="17_l6d71"]
 [ext_resource type="Texture2D" uid="uid://d34dae7ykbrot" path="res://resources/Chest_v1.0/Chest/Open/Gold/Open(GoldLoot)11.png" id="18_titgu"]
 [ext_resource type="Texture2D" uid="uid://dihjyh0i6ibfl" path="res://resources/Chest_v1.0/Chest/Open/Gold/Open(GoldLoot)12.png" id="19_2bygd"]
+[ext_resource type="AudioStream" uid="uid://k4km8h7hgdc7" path="res://Music/01_chest_open_1.wav" id="20_tstbf"]
+[ext_resource type="AudioStream" uid="uid://n1phvc8vtg8l" path="res://Music/01_chest_open_3.wav" id="21_3tipa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sfqqn"]
 atlas = ExtResource("3_tstbf")
@@ -147,6 +149,12 @@ shape = SubResource("RectangleShape2D_t0psj")
 [node name="damageArea" type="CollisionShape2D" parent="StaticBody2D/damageArea"]
 position = Vector2(-1, 7)
 shape = SubResource("CircleShape2D_3jcw7")
+
+[node name="ChestHit" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("20_tstbf")
+
+[node name="ChestOpen" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("21_3tipa")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 8)

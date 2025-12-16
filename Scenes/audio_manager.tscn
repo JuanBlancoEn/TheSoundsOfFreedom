@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8he4cmf86iu0"]
+
+[ext_resource type="Script" uid="uid://bu00e3ls7sjok" path="res://audio_manager.gd" id="1_hhwve"]
+[ext_resource type="AudioStream" uid="uid://b7p3188f1oo07" path="res://Music/Regular.wav" id="2_qixve"]
+[ext_resource type="AudioStream" uid="uid://bv2r42xm0b0o0" path="res://Music/Battle.wav" id="3_0hehx"]
+[ext_resource type="AudioStream" uid="uid://dhrip30kxj5w" path="res://Music/pickupCoin.wav" id="4_qixve"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_hhwve")
+
+[node name="Exploration" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qixve")
+
+[node name="Combat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0hehx")
+
+[node name="Diamond" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qixve")
+volume_db = -20.8
