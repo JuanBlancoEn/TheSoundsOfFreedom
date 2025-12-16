@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=34 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://7wp7w7lpvtk0" path="res://mapa.tscn" id="1_03owx"]
 [ext_resource type="PackedScene" uid="uid://dj5pkwiilh3ii" path="res://Scenes/diamante.tscn" id="3_r0du0"]
@@ -8,7 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bdo6ofvqkbaay" path="res://personaje/CrouchIdle.png" id="8_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://db13bh1l8idqd" path="res://Scenes/mapa2.tscn" id="9_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://cs02rc4ldkt0v" path="res://resources/rosa.png" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://i46p1j63lkaw" path="res://caja_2.gd" id="10_dg77c"]
+[ext_resource type="Script" uid="uid://dl6dglulyyxic" path="res://area_puzzle.gd" id="10_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="10_wkp8b"]
+[ext_resource type="Script" uid="uid://nscnyv4l3fb6" path="res://puzzlecontroller.gd" id="13_ycdy4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
 
@@ -127,6 +131,9 @@ bg_color = Color(0.878431, 0.0392157, 0.262745, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03owx"]
 bg_color = Color(0.16156, 0.751843, 0.301087, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(40, 34)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Mapa" parent="." instance=ExtResource("1_03owx")]
@@ -167,7 +174,6 @@ position = Vector2(459, 137)
 position = Vector2(620, 158)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -202,6 +208,7 @@ hframes = 4
 vframes = 3
 
 [node name="Character" parent="." instance=ExtResource("7_trn2v")]
+z_index = 1
 position = Vector2(199, 140)
 motion_mode = 1
 
@@ -221,3 +228,81 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Node2D" parent="." instance=ExtResource("9_wkp8b")]
 position = Vector2(1369, -38)
+
+[node name="Caja2" type="RigidBody2D" parent="." groups=["cajas1"]]
+position = Vector2(167, 144)
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 50.0
+script = ExtResource("10_dg77c")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caja2"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_20pc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caja2"]
+z_index = 1
+position = Vector2(-2, -1.99999)
+scale = Vector2(1.02382, 0.944318)
+texture = ExtResource("10_wkp8b")
+hframes = 4
+vframes = 3
+
+[node name="Caja3" type="RigidBody2D" parent="." groups=["cajas1"]]
+position = Vector2(796, -68)
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 50.0
+script = ExtResource("10_dg77c")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caja3"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_20pc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caja3"]
+z_index = 1
+position = Vector2(-2, -1.99999)
+scale = Vector2(1.02382, 0.944318)
+texture = ExtResource("10_wkp8b")
+hframes = 4
+vframes = 3
+
+[node name="Puzzlecontroller" type="Node" parent="." node_paths=PackedStringArray("areaPuzzle", "areaPuzzle2")]
+script = ExtResource("13_ycdy4")
+areaPuzzle = NodePath("AreaPuzzle")
+areaPuzzle2 = NodePath("AreaPuzzle2")
+
+[node name="AreaPuzzle" type="Area2D" parent="Puzzlecontroller"]
+position = Vector2(62, 115)
+script = ExtResource("10_efxa6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzlecontroller/AreaPuzzle"]
+position = Vector2(10, 7)
+shape = SubResource("RectangleShape2D_efxa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzlecontroller/AreaPuzzle"]
+modulate = Color(1, 1, 1, 0.68235296)
+position = Vector2(9.999999, 7.0000005)
+scale = Vector2(2.5625002, 2.1874995)
+texture = ExtResource("10_4c57u")
+
+[node name="AreaPuzzle2" type="Area2D" parent="Puzzlecontroller"]
+position = Vector2(860, -89)
+script = ExtResource("10_efxa6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzlecontroller/AreaPuzzle2"]
+position = Vector2(10, 7)
+shape = SubResource("RectangleShape2D_efxa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzlecontroller/AreaPuzzle2"]
+modulate = Color(1, 1, 1, 0.68235296)
+position = Vector2(9.999999, 7.0000005)
+scale = Vector2(2.5625002, 2.1874995)
+texture = ExtResource("10_4c57u")
+
+[connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle" to="Caja2" method="_on_area_puzzle_body_entered"]
+[connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle2" to="Caja3" method="_on_area_puzzle_2_body_entered"]
