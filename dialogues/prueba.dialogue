@@ -28,7 +28,7 @@ Robin: Or maybe it's just my eyes playing tricks on me. Tell me, how much light 
 - I was born in the darkness (Hard)
 	Robin: (Gasps) Are you insane? Or just a legend?
 	Robin: Fine. I'll dim the light. It's barely enough to see your own feet. Good luck, hero.
-	set G.light_level = 0.75
+	set G.light_level = 0.60
 	set G.changed=true
 
 Robin: The light is set. Now... let's find the exit before they find us.
