@@ -20,6 +20,7 @@ var vida_maxima: float = 100.0
 var vida_actual: float = 100.0
 var diamantes:int =0
 var killed_spiders:int=0
+var dialogoinicial=true
 func _ready():
 	# Configuración inicial de la barra al empezar el juego
 	onda.play("idle")
@@ -47,29 +48,29 @@ func recibir_dano(cantidad: float):
 
 func _physics_process(delta):
 	var direccion = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	if direccion:
-		velocity = direccion * velocidad
-		animacion(direccion)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, velocidad)
-		animated_sprite_2d.play("idle")
+	if !dialogoinicial:
+		if direccion:
+			velocity = direccion * velocidad
+			animacion(direccion)
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, velocidad)
+			animated_sprite_2d.play("idle")
 		
 		
-	move_and_slide()
+		move_and_slide()
 	
-	for i in get_slide_collision_count():
-		var colision = get_slide_collision(i)
-		var objeto_tocado = colision.get_collider()
+		for i in get_slide_collision_count():
+			var colision = get_slide_collision(i)
+			var objeto_tocado = colision.get_collider()
 		
 		# Verificamos si lo que tocamos es un RigidBody (la caja)
-		if objeto_tocado is RigidBody2D:
+			if objeto_tocado is RigidBody2D:
 			# Calculamos la dirección del empuje (inversa a la normal del choque)
-			var direccion_empuje = -colision.get_normal() * 800
+				var direccion_empuje = -colision.get_normal() * 800
 			
 			# Aplicamos fuerza. Ajusta el '50.0' si quieres más o menos fuerza.
 			# Usamos 'apply_central_impulse' para un empujón instantáne
-			objeto_tocado.apply_central_impulse(direccion_empuje)
+				objeto_tocado.apply_central_impulse(direccion_empuje)
 
 func animacion(dir: Vector2):
 	var angulo = dir.angle()
@@ -87,7 +88,7 @@ func activar_super_luz():
 	onda.stop()
 	onda.play("super_onda")
 
-	if luz:
+	if luz and !dialogoinicial:
 		# 1. Limpieza: Si ya hay una animación activa, la detenemos
 		if tween_luz:
 			tween_luz.kill()
@@ -117,33 +118,34 @@ func activar_super_luz():
 		
 		
 func shoot():
+	if !dialogoinicial:
 	# ... (tus comprobaciones de seguridad e instancias anteriores) ...
-	if bullet_spawner == null: return
-	var bullet = bullet_scene.instantiate()
-	bullet.global_position = bullet_spawner.global_position
+		if bullet_spawner == null: return
+		var bullet = bullet_scene.instantiate()
+		bullet.global_position = bullet_spawner.global_position
 
-	# --- 1. CONFIGURACIÓN DE REBOTE MÁXIMO ---
-	# Creamos un material físico nuevo "al vuelo"
-	var material_rebote = PhysicsMaterial.new()
-	material_rebote.bounce = 1.0   # 1.0 es el máximo (rebote perfecto)
-	material_rebote.friction = 0.0 # 0.0 para que no pierda velocidad al rozar paredes
-	
-	# Se lo aplicamos a la bala
-	if bullet is RigidBody2D:
-		bullet.physics_material_override = material_rebote
-		bullet.gravity_scale = 0.0 # Aseguramos que no caiga
-		# Bloqueamos la rotación para que el rebote sea más predecible (opcional)
-		bullet.lock_rotation = true 
+		# --- 1. CONFIGURACIÓN DE REBOTE MÁXIMO ---
+		# Creamos un material físico nuevo "al vuelo"
+		var material_rebote = PhysicsMaterial.new()
+		material_rebote.bounce = 1.0   # 1.0 es el máximo (rebote perfecto)
+		material_rebote.friction = 0.0 # 0.0 para que no pierda velocidad al rozar paredes
+		
+		# Se lo aplicamos a la bala
+		if bullet is RigidBody2D:
+			bullet.physics_material_override = material_rebote
+			bullet.gravity_scale = 0.0 # Aseguramos que no caiga
+			# Bloqueamos la rotación para que el rebote sea más predecible (opcional)
+			bullet.lock_rotation = true 
 
-	# ... (resto de cálculo de dirección y velocidad) ...
-	var direction = (get_global_mouse_position() - bullet_spawner.global_position).normalized()
-	bullet.linear_velocity = direction * 80.0 
-	
-	get_tree().current_scene.add_child(bullet)
-	get_tree().create_timer(2.0).timeout.connect(bullet.queue_free)
-	
-	# --- 2. EVITAR QUE CHOQUE CON EL PERSONAJE ---
-	bullet.add_collision_exception_with(self)
+		# ... (resto de cálculo de dirección y velocidad) ...
+		var direction = (get_global_mouse_position() - bullet_spawner.global_position).normalized()
+		bullet.linear_velocity = direction * 80.0 
+		
+		get_tree().current_scene.add_child(bullet)
+		get_tree().create_timer(2.0).timeout.connect(bullet.queue_free)
+		
+		# --- 2. EVITAR QUE CHOQUE CON EL PERSONAJE ---
+		bullet.add_collision_exception_with(self)
 
 func plus1Diamante():
 	diamantes+=1
@@ -167,3 +169,8 @@ func set_light(rango: float) -> void:
 	print("ESCALA CAMBIADA")
 	luz.scale*=rango
 # En el script del NPC (Robin)
+func dialogoinicialacabado()->void:
+	dialogoinicial=false
+	
+func set_killed_spiders(num:int)->void:
+	killed_spiders=num

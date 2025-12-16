@@ -1,6 +1,7 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $Balloon/AnimatedSprite2D
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -78,6 +79,7 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+	animated_sprite_2d.play("default")
 
 	if auto_start:
 		if not is_instance_valid(dialogue_resource):

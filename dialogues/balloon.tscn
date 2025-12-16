@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://d11o0gx7r0a2n"]
+[gd_scene load_steps=16 format=3 uid="uid://d11o0gx7r0a2n"]
 
 [ext_resource type="Script" uid="uid://d0qylau5batxn" path="res://dialogues/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://bk2ltl3b835a6" path="res://resources/x256_Spritesheets/Die1/Minecraftchmc-dBlX.ttf" id="2_pa16h"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://d78ikywnkixm" path="res://resources/ChatGPT Image 16 dic 2025, 17_22_04.png" id="5_ooonl"]
+[ext_resource type="Texture2D" uid="uid://cjgqsxnl0bfhn" path="res://resources/ChatGPT Image 16 dic 2025, 17_40_18.png" id="5_7c2jb"]
+[ext_resource type="Texture2D" uid="uid://dxt4ch114s2pe" path="res://resources/ChatGPT Image 16 dic 2025, 17_44_59.png" id="6_rvrp7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -101,6 +102,20 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_m00rr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7c2jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rvrp7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -122,6 +137,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -219.0
+offset_right = -360.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -204,10 +220,11 @@ theme_override_fonts/font = ExtResource("2_pa16h")
 theme_override_font_sizes/font_size = 26
 text = "Response example"
 
-[node name="Sprite2D" type="Sprite2D" parent="Balloon"]
-position = Vector2(984, 240)
-scale = Vector2(0.265625, 0.265625)
-texture = ExtResource("5_ooonl")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Balloon"]
+position = Vector2(936, 352)
+scale = Vector2(0.378906, 0.378906)
+sprite_frames = SubResource("SpriteFrames_m00rr")
+frame_progress = 0.323425
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
