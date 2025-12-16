@@ -7,10 +7,13 @@ extends Node2D
 @onready var fence2: TileMapLayer = $fences2
 @onready var label_fence3: Label = $label_fence3
 @onready var fence3: TileMapLayer = $fences3
+@onready var dialogo: Node2D = $Dialogo
 
 var fence3open=false
 
-
+func _ready() -> void:
+	var char=character
+	dialogo.dialogoPrincipal(char)
 func _process(delta):
 	# Si no encontramos al personaje, no hacemos nada para evitar errores
 	

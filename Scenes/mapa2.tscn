@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=19 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="7_y44iy"]
 [ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="8_5vbk7"]
 [ext_resource type="PackedScene" uid="uid://dab7o8mg7w2ta" path="res://Scenes/chest.tscn" id="9_cmyl0"]
+[ext_resource type="PackedScene" uid="uid://c7twg1utjvxmx" path="res://Scenes/dialogo2.tscn" id="10_mx7q7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vbk7"]
 texture = ExtResource("2_esb8b")
@@ -447,6 +448,7 @@ text = "    UNLOCK IT BY
  OPENING THE CHEST"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="Enemigos" type="Node2D" parent="."]
@@ -464,7 +466,7 @@ position = Vector2(24, -312)
 scale = Vector2(0.239995, 0.239995)
 
 [node name="araña10" parent="Enemigos" instance=ExtResource("7_y44iy")]
-position = Vector2(24, -463)
+position = Vector2(24, -464)
 scale = Vector2(0.239995, 0.239995)
 
 [node name="araña2" parent="Enemigos" instance=ExtResource("7_y44iy")]
@@ -496,6 +498,9 @@ position = Vector2(464, 253)
 [node name="Torch3" parent="Antorchas" instance=ExtResource("8_5vbk7")]
 position = Vector2(784, -396)
 
+[node name="Torch6" parent="Antorchas" instance=ExtResource("8_5vbk7")]
+position = Vector2(589, -344)
+
 [node name="Torch4" parent="Antorchas" instance=ExtResource("8_5vbk7")]
 position = Vector2(-24, -552)
 
@@ -507,3 +512,5 @@ position = Vector2(75, -552)
 [node name="Chest" parent="Chests" instance=ExtResource("9_cmyl0")]
 position = Vector2(688, -220)
 scale = Vector2(0.76, 0.76)
+
+[node name="Dialogo" parent="." instance=ExtResource("10_mx7q7")]

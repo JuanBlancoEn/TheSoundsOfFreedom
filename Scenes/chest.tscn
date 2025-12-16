@@ -150,7 +150,7 @@ shape = SubResource("CircleShape2D_3jcw7")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 8)
-scale = Vector2(0.68, 0.68)
+scale = Vector2(1.04, 1.04)
 texture = SubResource("GradientTexture2D_cqn7c")
 
 [connection signal="body_entered" from="StaticBody2D/damageArea" to="." method="_on_damage_area_body_entered"]

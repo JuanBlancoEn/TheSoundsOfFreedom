@@ -1,0 +1,37 @@
+
+
+~ start
+
+Robin: (Coughs) ... Is someone there?
+Robin: Over here! By the rocks!
+Robin: My name is Robin. I've been stuck in this cursed cave for days.
+Robin: I tried to fight them off... but there are too many of them. The spiders... they are everywhere.
+Robin: You look strong, traveler. And you have the "Spark".
+Robin: Listen, if you want to survive, you need to defend yourself.
+Robin: Focus your energy and Click the Left Mouse Button to shoot energy waves. Try to aim for their heads.
+
+Robin: But we have a bigger problem... The darkness itself seems to consume the light here.
+Robin: I have this magic lantern, but its energy is fading. I can adjust how much it shines, but...
+Robin: The brighter it shines, the safer we feel, but the monsters might see us sooner.
+Robin: Or maybe it's just my eyes playing tricks on me. Tell me, how much light do you need to fight?
+
+- I need full visibility (Easy)
+	Robin: Alright. I'll push the lantern to its limit. We'll see everything coming.
+	Robin: Just don't let them touch you.
+	set G.light_level = 2.0
+	set G.changed=true
+- I can manage with standard light (Normal)
+	Robin: A wise choice. Balanced. Not too bright, not too dark.
+	Robin: Let's hope it's enough to spot those eight-legged freaks.
+	set G.light_level = 1.0
+	set G.changed=true
+- I was born in the darkness (Hard)
+	Robin: (Gasps) Are you insane? Or just a legend?
+	Robin: Fine. I'll dim the light. It's barely enough to see your own feet. Good luck, hero.
+	set G.light_level = 0.75
+	set G.changed=true
+
+Robin: The light is set. Now... let's find the exit before they find us.
+Robin: Go! I'll cover your back... from here.
+
+=> END

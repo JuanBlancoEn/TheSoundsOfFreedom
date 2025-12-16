@@ -163,3 +163,7 @@ func morir():
 func registrar_muerte_arana():
 	killed_spiders += 1
 	print("1 araña menos")
+func set_light(rango: float) -> void:
+	print("ESCALA CAMBIADA")
+	luz.scale*=rango
+# En el script del NPC (Robin)
