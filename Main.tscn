@@ -147,19 +147,25 @@ z_index = 1
 position = Vector2(311, 172)
 
 [node name="Area2D2" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(498, 42)
+position = Vector2(466, 15)
 
 [node name="Area2D3" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(511, 250)
 
 [node name="Area2D4" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(699, -68)
+position = Vector2(678, -54)
 
 [node name="Area2D5" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(945, -33)
 
+[node name="Area2D11" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(948, 12)
+
+[node name="Area2D12" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(860, 12)
+
 [node name="Area2D6" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(269, 46)
+position = Vector2(358, 1)
 
 [node name="Area2D7" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(739, 102)
@@ -171,10 +177,9 @@ position = Vector2(688, 231)
 position = Vector2(459, 137)
 
 [node name="Area2D10" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(620, 158)
+position = Vector2(612, 154)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -223,14 +228,38 @@ theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")
 
 [node name="araña" parent="." instance=ExtResource("9_03owx")]
-position = Vector2(327, 70)
+position = Vector2(323, 106)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña2" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(277, 45)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña3" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(82, 189)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña4" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(504, 39)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña5" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(614, 195)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña6" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(663, 52)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña7" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(752, -88)
 scale = Vector2(0.2, 0.2)
 
 [node name="Node2D" parent="." instance=ExtResource("9_wkp8b")]
 position = Vector2(1369, -38)
 
 [node name="Caja2" type="RigidBody2D" parent="." groups=["cajas1"]]
-position = Vector2(167, 144)
+position = Vector2(200, 178)
 mass = 5.0
 gravity_scale = 0.0
 linear_damp = 50.0
@@ -250,7 +279,7 @@ hframes = 4
 vframes = 3
 
 [node name="Caja3" type="RigidBody2D" parent="." groups=["cajas1"]]
-position = Vector2(796, -68)
+position = Vector2(691, -91)
 mass = 5.0
 gravity_scale = 0.0
 linear_damp = 50.0
@@ -284,9 +313,9 @@ position = Vector2(10, 7)
 shape = SubResource("RectangleShape2D_efxa6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Puzzlecontroller/AreaPuzzle"]
-modulate = Color(1, 1, 1, 0.68235296)
-position = Vector2(9.999999, 7.0000005)
-scale = Vector2(2.5625002, 2.1874995)
+modulate = Color(1, 1, 1, 0.682353)
+position = Vector2(10, 7)
+scale = Vector2(2.5625, 2.1875)
 texture = ExtResource("10_4c57u")
 
 [node name="AreaPuzzle2" type="Area2D" parent="Puzzlecontroller"]
@@ -299,9 +328,9 @@ position = Vector2(10, 7)
 shape = SubResource("RectangleShape2D_efxa6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Puzzlecontroller/AreaPuzzle2"]
-modulate = Color(1, 1, 1, 0.68235296)
-position = Vector2(9.999999, 7.0000005)
-scale = Vector2(2.5625002, 2.1874995)
+modulate = Color(1, 1, 1, 0.682353)
+position = Vector2(10, 7)
+scale = Vector2(2.5625, 2.1875)
 texture = ExtResource("10_4c57u")
 
 [connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle" to="Caja2" method="_on_area_puzzle_body_entered"]
