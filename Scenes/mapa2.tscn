@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=46 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="7_y44iy"]
 [ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="8_5vbk7"]
 [ext_resource type="PackedScene" uid="uid://dab7o8mg7w2ta" path="res://Scenes/chest.tscn" id="9_cmyl0"]
-[ext_resource type="Script" uid="uid://2hflt6x7ufny" path="res://Scenes/torreta.gd" id="9_essts"]
+[ext_resource type="Script" path="res://Scenes/torreta.gd" id="9_essts"]
 [ext_resource type="Texture2D" uid="uid://ctkxxldpsx743" path="res://resources/shooter/shooter.png" id="9_o6vom"]
 [ext_resource type="PackedScene" uid="uid://xgemoqeq1757" path="res://Scenes/large_bullet.tscn" id="10_mfquy"]
 [ext_resource type="PackedScene" uid="uid://c7twg1utjvxmx" path="res://Scenes/dialogo2.tscn" id="10_mx7q7"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://dr1ifc3gv1kjw" path="res://resources/placas/placa1.png" id="13_nls2a"]
 [ext_resource type="Texture2D" uid="uid://cc5otcyabtqx7" path="res://resources/placas/placa2.png" id="14_o6vom"]
 [ext_resource type="Texture2D" uid="uid://dqsmexlmhigfn" path="res://resources/espejos/espejo2.png" id="15_nls2a"]
+[ext_resource type="Texture2D" uid="uid://cipct5ofrm04x" path="res://personaje/Warrior-V1.3/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="20_fe38q"]
 [ext_resource type="Texture2D" uid="uid://d34qtcw3tnhu3" path="res://resources/espejos/cosaroja.png" id="20_n37js"]
+[ext_resource type="Script" uid="uid://chrq20h28rdru" path="res://Scenes/animated_sprite_2d.gd" id="21_htf3v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vbk7"]
 texture = ExtResource("2_esb8b")
@@ -376,6 +378,59 @@ size = Vector2(11, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fe38q"]
 size = Vector2(3, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k317p"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(0, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo73w"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(69, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iw5p"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(138, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2led"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(207, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix3xw"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(276, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4beh"]
+atlas = ExtResource("20_fe38q")
+region = Rect2(345, 0, 69, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4gfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k317p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo73w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iw5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2led")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix3xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4beh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n37js"]
+size = Vector2(20, 121)
+
 [node name="Node2D2" type="Node2D" groups=["map2"]]
 process_mode = 1
 script = ExtResource("1_b7k0e")
@@ -493,7 +548,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="Character" parent="." instance=ExtResource("4_esb8b")]
-position = Vector2(430, 591)
+position = Vector2(489, -772)
 collision_layer = 179
 collision_mask = 179
 
@@ -652,7 +707,6 @@ text = "    UNLOCK IT BY
  OPENING THE CHEST"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="Enemigos" type="Node2D" parent="."]
@@ -794,5 +848,21 @@ shape = SubResource("RectangleShape2D_fe38q")
 position = Vector2(591, -115)
 texture = ExtResource("20_n37js")
 
+[node name="FinalPrincess" type="AnimatedSprite2D" parent="."]
+position = Vector2(575, -775)
+scale = Vector2(0.765314, 0.76001)
+sprite_frames = SubResource("SpriteFrames_h4gfs")
+frame_progress = 0.998774
+flip_h = true
+script = ExtResource("21_htf3v")
+
+[node name="finalArea" type="Area2D" parent="."]
+position = Vector2(547, -768)
+
+[node name="finalArea" type="CollisionShape2D" parent="finalArea"]
+position = Vector2(15, -1)
+shape = SubResource("RectangleShape2D_n37js")
+
 [connection signal="body_entered" from="Placa" to="Placa" method="_on_body_entered"]
 [connection signal="body_entered" from="areaFinal" to="." method="_on_area_final_body_entered"]
+[connection signal="body_entered" from="finalArea" to="." method="_on_final_area_body_entered"]

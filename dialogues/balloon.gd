@@ -1,7 +1,7 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $Balloon/AnimatedSprite2D
+
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -20,6 +20,8 @@ extends CanvasLayer
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var chico: AnimatedSprite2D = $Balloon/chico
+@onready var chica: AnimatedSprite2D = $Balloon/chica
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -79,7 +81,8 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
-	animated_sprite_2d.play("default")
+	chico.play("default")
+	chica.play("default")
 
 	if auto_start:
 		if not is_instance_valid(dialogue_resource):
@@ -90,7 +93,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
-
+	if G.dialogo1:
+		chico.visible=true
+		chica.visible=false
+	else:
+		chico.visible=false
+		chica.visible=true
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing

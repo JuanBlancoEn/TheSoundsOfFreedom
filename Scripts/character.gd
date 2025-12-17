@@ -134,7 +134,7 @@ func shoot():
 
 func plus1Diamante():
 	diamantes+=1
-	print(diamantes)
+	G.addPuntuacion(2)
 
 func morir():
 	print("💀 Jugador eliminado. Reiniciando nivel...")
@@ -144,6 +144,7 @@ func morir():
 func registrar_muerte_arana():
 	killed_spiders += 1
 	print("1 araña menos")
+	G.addPuntuacion(5)
 
 func set_light(rango: float) -> void:
 	print("ESCALA CAMBIADA")

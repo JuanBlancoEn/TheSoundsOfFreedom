@@ -101,7 +101,7 @@ func damage(damage_amount: int) -> void:
 		is_moving = false
 		sprite.play("die")
 		AudioManager.kill_spider()
-		
+		G.addPuntuacion(10)
 		
 		# --- NUEVO: AVISAR AL JUGADOR ---
 		# Buscamos el nodo del jugador usando el grupo "character"

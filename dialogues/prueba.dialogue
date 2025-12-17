@@ -35,3 +35,11 @@ Robin: The light is set. Now... let's find the exit before they find us.
 Robin: Go! I'll cover your back... from here.
 
 => END
+~ final
+
+Cassandra: (Shields her eyes) ... The light? Is someone finally here?
+Cassandra: I am Princess Cassandra. I thought the shadows had swallowed me whole.
+Cassandra: You fought through the darkness to find me... You truly possess the "Spark".
+Cassandra: Thank you, brave traveler. Please, take me out of this nightmare. Let's go home.
+set G.dialogofinalacabado=true
+=> END

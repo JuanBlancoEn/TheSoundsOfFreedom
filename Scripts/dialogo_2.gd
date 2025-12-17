@@ -14,7 +14,12 @@ func dialogoPrincipal(body: CharacterBody2D) -> void:
 		[]
 	)
 	aplicar_luz(body)
-
+func dialogoFinal() -> void:
+	DialogueManager.show_dialogue_balloon(
+		DIALOGO_ROBIN, 
+		"final",       # <--- IMPORTANTE: Buscará este título en el archivo
+		[]         # <--- Pasamos al personaje por si quieres usar 'do body.algo()'
+	)
 func aplicar_luz(character: CharacterBody2D) -> void:
 	print(str(G.light_level)+"AQUIIIIII")
 	print("💡 Luz desde GameState:", G.light_level)

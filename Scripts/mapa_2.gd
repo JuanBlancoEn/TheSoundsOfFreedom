@@ -15,12 +15,14 @@ extends Node2D
 @onready var area_2d_33: Area2D = $Diamantes/Area2D33
 @onready var area_2d_34: Area2D = $Diamantes/Area2D34
 @onready var fence4: TileMapLayer = $fences4
+@onready var directional_light_2d: DirectionalLight2D = $DirectionalLight2D
 
 
 var posicion_real_fence4: Vector2
 var fence3open=false
 var killed_spiders:int=0
 var killed_spiders2:int=0
+
 
 func _ready() -> void:
 	area_2d_29.desactivar()
@@ -86,7 +88,8 @@ func _process(delta):
 			fence4.queue_free()
 			killed_spiders=killed_spiders2
 			killed_spiders2=0
-		
+	if G.dialogofinalacabado:
+		get_tree().change_scene_to_file("res://Scenes/final.tscn")
 func openfence3()->void:
 	fence3open=true
 
@@ -102,3 +105,14 @@ func _on_area_final_body_entered(body: CharacterBody2D) -> void:
 		fence4.position = posicion_real_fence4
 		killed_spiders2=killed_spiders
 		body.set_killed_spiders(0)
+
+
+func _on_final_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("character"):
+		character.dialogoinicial=true
+		G.dialogo1=false
+		directional_light_2d.visible=false
+		await get_tree().create_timer(1.0).timeout
+		dialogo.dialogoFinal()
+	#dialogo
+	#desactivar luz

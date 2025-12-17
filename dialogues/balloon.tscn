@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d11o0gx7r0a2n"]
+[gd_scene load_steps=19 format=3 uid="uid://d11o0gx7r0a2n"]
 
 [ext_resource type="Script" uid="uid://d0qylau5batxn" path="res://dialogues/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://cjgqsxnl0bfhn" path="res://resources/ChatGPT Image 16 dic 2025, 17_40_18.png" id="5_7c2jb"]
 [ext_resource type="Texture2D" uid="uid://dxt4ch114s2pe" path="res://resources/ChatGPT Image 16 dic 2025, 17_44_59.png" id="6_rvrp7"]
+[ext_resource type="Texture2D" uid="uid://c8d6ytf4tbsu1" path="res://dialogues/ChatGPT Image 17 dic 2025, 17_57_14.png" id="7_m00rr"]
+[ext_resource type="Texture2D" uid="uid://bt16580gmfn2r" path="res://dialogues/ChatGPT Image 17 dic 2025, 17_59_22.png" id="8_gb3oo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -116,6 +118,20 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x2yy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_m00rr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gb3oo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -220,11 +236,17 @@ theme_override_fonts/font = ExtResource("2_pa16h")
 theme_override_font_sizes/font_size = 26
 text = "Response example"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Balloon"]
+[node name="chico" type="AnimatedSprite2D" parent="Balloon"]
 position = Vector2(936, 352)
 scale = Vector2(0.378906, 0.378906)
 sprite_frames = SubResource("SpriteFrames_m00rr")
 frame_progress = 0.323425
+
+[node name="chica" type="AnimatedSprite2D" parent="Balloon"]
+position = Vector2(952, 408)
+scale = Vector2(0.464844, 0.464844)
+sprite_frames = SubResource("SpriteFrames_2x2yy")
+frame_progress = 0.255015
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
