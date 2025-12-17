@@ -31,7 +31,8 @@ func _ready() -> void:
 	area_2d_34.desactivar()
 	
 	var char=character
-	dialogo.dialogoPrincipal(char)
+	if G.primer_nivel:
+		dialogo.dialogoPrincipal(char)
 	posicion_real_fence4 = fence4.position
 	
 	# 2. La enviamos MUY LEJOS para que no moleste ni se vea

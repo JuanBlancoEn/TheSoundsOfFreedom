@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="7_y44iy"]
 [ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="8_5vbk7"]
 [ext_resource type="PackedScene" uid="uid://dab7o8mg7w2ta" path="res://Scenes/chest.tscn" id="9_cmyl0"]
-[ext_resource type="Script" uid="uid://2hflt6x7ufny" path="res://Scenes/torreta.gd" id="9_essts"]
+[ext_resource type="Script" path="res://Scenes/torreta.gd" id="9_essts"]
 [ext_resource type="Texture2D" uid="uid://ctkxxldpsx743" path="res://resources/shooter/shooter.png" id="9_o6vom"]
 [ext_resource type="PackedScene" uid="uid://xgemoqeq1757" path="res://Scenes/large_bullet.tscn" id="10_mfquy"]
 [ext_resource type="PackedScene" uid="uid://c7twg1utjvxmx" path="res://Scenes/dialogo2.tscn" id="10_mx7q7"]
@@ -51,7 +51,7 @@ texture = ExtResource("2_esb8b")
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:0/0 = 0
-9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.79859, -8, -2.33816, 8, -8, 8)
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.51802, -8, -2.1583, 8, -8, 8)
@@ -87,7 +87,6 @@ texture = ExtResource("2_esb8b")
 8:1/0 = 0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:1/0 = 0
-9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
 0:2/0/terrain_set = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.51802, -8, -2.1583, 8, -8, 8)
@@ -351,7 +350,7 @@ animations = [{
 size = Vector2(13, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7d3"]
-size = Vector2(6.306122, 14)
+size = Vector2(6.30612, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfquy"]
 size = Vector2(11, 5)
@@ -435,11 +434,11 @@ vframes = 3
 
 [node name="Espejo" type="Node2D" parent="."]
 position = Vector2(580, -48)
-rotation = -6.2879276
-scale = Vector2(0.7148549, 0.8190665)
+rotation = -6.28793
+scale = Vector2(0.714855, 0.819067)
 
 [node name="Hitbox1" type="RigidBody2D" parent="Espejo"]
-position = Vector2(1.7464161e-05, 2.3841858e-06)
+position = Vector2(1.74642e-05, 2.38419e-06)
 collision_layer = 128
 collision_mask = 128
 mass = 5.0
@@ -447,18 +446,18 @@ gravity_scale = 0.0
 linear_damp = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Espejo/Hitbox1"]
-position = Vector2(0.19070446, -0.50312304)
-rotation = 0.004707797
+position = Vector2(0.190704, -0.503123)
+rotation = 0.0047078
 shape = SubResource("RectangleShape2D_ckh4t")
 
 [node name="Espejo2" type="Sprite2D" parent="Espejo/Hitbox1"]
-position = Vector2(0.69070446, -0.50312304)
-rotation = 2.9752955
-scale = Vector2(-0.80520886, 1.0095421)
+position = Vector2(0.690704, -0.503123)
+rotation = 2.9753
+scale = Vector2(-0.805209, 1.00954)
 texture = ExtResource("15_nls2a")
 
 [node name="Hitbox2" type="RigidBody2D" parent="Espejo"]
-position = Vector2(1.9073486e-06, 3.3341348e-07)
+position = Vector2(1.90735e-06, 3.33413e-07)
 collision_layer = 16
 collision_mask = 16
 mass = 5.0
@@ -466,13 +465,13 @@ gravity_scale = 0.0
 linear_damp = 50.0
 
 [node name="ColisionEspejo" type="CollisionShape2D" parent="Espejo/Hitbox2"]
-rotation = -0.48578554
-scale = Vector2(0.99999994, 0.99999994)
+rotation = -0.485786
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wu7d3")
 
 [node name="Torreta" type="StaticBody2D" parent="."]
-position = Vector2(410, -114.999985)
-rotation = -1.5648907
+position = Vector2(410, -115)
+rotation = -1.56489
 script = ExtResource("9_essts")
 bala_escena = ExtResource("10_mfquy")
 
@@ -485,7 +484,7 @@ position = Vector2(1, 2)
 texture = ExtResource("9_o6vom")
 
 [node name="bulletSpawner" type="Node2D" parent="Torreta"]
-position = Vector2(0.011839747, 1.9999678)
+position = Vector2(0.0118397, 1.99997)
 
 [node name="Marker2D" type="Marker2D" parent="Torreta/bulletSpawner"]
 
@@ -770,7 +769,7 @@ scale = Vector2(0.76, 0.76)
 
 [node name="areaFinal" type="Area2D" parent="."]
 position = Vector2(-241, -161)
-rotation = 0.30893904
+rotation = 0.308939
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areaFinal"]
 position = Vector2(331, -871)
