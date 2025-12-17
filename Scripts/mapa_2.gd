@@ -41,14 +41,14 @@ func _ready() -> void:
 	fence4.position = Vector2(-10000, -10000)
 func _process(delta):
 	# Si no encontramos al personaje, no hacemos nada para evitar errores
-	
+	killed_spiders=character.killed_spiders
 	# 2. Leemos la variable del personaje (sincronización constante)
 	var diamantes_actuales = character.diamantes
 	if is_instance_valid(label_fence1):
 		label_fence1.text="UNLOCK IT WITH 3 BUTTONS ON \n  "
 	
 	if is_instance_valid(label_fence2):
-		label_fence2.text="UNLOCK IT BY KILLING 5 SPIDERS \n   YOU HAVE KILLED "+str(killed_spiders)
+		label_fence2.text="UNLOCK IT BY KILLING 12 SPIDERS \n   YOU HAVE KILLED "+str(killed_spiders)
 	if is_instance_valid(label_fence3):
 		label_fence3.text="   UNLOCK IT BY\n OPENING THE CHEST"
 	# 3. Comprobamos si llegó a la meta
@@ -64,7 +64,7 @@ func _process(delta):
 			# Opcional: Dejamos de ejecutar _process para ahorrar recursos
 			
 	
-	if killed_spiders>=5:
+	if killed_spiders>=12:
 		if is_instance_valid(fence2):
 			AudioManager.opening_fences()
 			fence2.queue_free()
