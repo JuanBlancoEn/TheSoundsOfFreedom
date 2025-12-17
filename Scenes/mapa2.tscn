@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=37 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cc5otcyabtqx7" path="res://resources/placas/placa2.png" id="14_o6vom"]
 [ext_resource type="Texture2D" uid="uid://dqsmexlmhigfn" path="res://resources/espejos/espejo2.png" id="15_nls2a"]
 [ext_resource type="Texture2D" uid="uid://d34qtcw3tnhu3" path="res://resources/espejos/cosaroja.png" id="20_n37js"]
+[ext_resource type="PackedScene" uid="uid://buic0on6tucoj" path="res://Scenes/pause.tscn" id="20_wu7d3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vbk7"]
 texture = ExtResource("2_esb8b")
@@ -377,6 +378,7 @@ size = Vector2(11, 20)
 size = Vector2(3, 16)
 
 [node name="Node2D2" type="Node2D" groups=["map2"]]
+process_mode = 1
 script = ExtResource("1_b7k0e")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -793,6 +795,8 @@ shape = SubResource("RectangleShape2D_fe38q")
 [node name="Sprite2D" type="Sprite2D" parent="eliminadorDeOnda"]
 position = Vector2(591, -115)
 texture = ExtResource("20_n37js")
+
+[node name="pause" parent="." instance=ExtResource("20_wu7d3")]
 
 [connection signal="body_entered" from="Placa" to="Placa" method="_on_body_entered"]
 [connection signal="body_entered" from="areaFinal" to="." method="_on_area_final_body_entered"]

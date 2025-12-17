@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://buic0on6tucoj"]
+
+[ext_resource type="Script" uid="uid://b6h7roaimhbx4" path="res://Scripts/pause.gd" id="1_l2mpd"]
+[ext_resource type="FontFile" uid="uid://vedvcmkklg23" path="res://resources/x256_Spritesheets/Die1/AerologicaRegular-K7day.ttf" id="2_5a6ek"]
+
+[node name="pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_l2mpd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0.262932, 0.262932, 0.262932, 0.470588)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 449.0
+offset_top = 245.0
+offset_right = 700.0
+offset_bottom = 333.0
+theme_override_fonts/font = ExtResource("2_5a6ek")
+theme_override_font_sizes/font_size = 82
+text = "PAUSE"
