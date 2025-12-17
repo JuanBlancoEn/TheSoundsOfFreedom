@@ -55,6 +55,7 @@ func _process(delta):
 		
 		# Verificamos si la valla aún existe antes de intentar borrarla
 		if is_instance_valid(fence1):
+			AudioManager.opening_fences()
 			fence1.queue_free()
 			print("¡Meta cumplida! Valla eliminada.")
 			label_fence1.queue_free()
@@ -64,10 +65,12 @@ func _process(delta):
 	
 	if killed_spiders>=5:
 		if is_instance_valid(fence2):
+			AudioManager.opening_fences()
 			fence2.queue_free()
 			label_fence2.queue_free()
 	if fence3open:
 		if is_instance_valid(fence3):
+			AudioManager.opening_fences()
 			fence3.queue_free()
 			label_fence3.queue_free()
 			area_2d_29.activar()

@@ -5,6 +5,7 @@ extends Node2D
 @onready var diamond: AudioStreamPlayer2D = $Diamond
 @onready var spider_death: AudioStreamPlayer2D = $SpiderDeath
 @onready var bullets: AudioStreamPlayer2D = $Bullets
+@onready var fences: AudioStreamPlayer2D = $Fences
 
 func _ready() -> void:
 	exploration.play()
@@ -27,3 +28,6 @@ func kill_spider():
 	
 func shoot_bullet():
 	bullets.play()
+	
+func opening_fences():
+	fences.play()

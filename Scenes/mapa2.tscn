@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="7_y44iy"]
 [ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="8_5vbk7"]
 [ext_resource type="PackedScene" uid="uid://dab7o8mg7w2ta" path="res://Scenes/chest.tscn" id="9_cmyl0"]
-[ext_resource type="Script" path="res://Scenes/torreta.gd" id="9_essts"]
+[ext_resource type="Script" uid="uid://2hflt6x7ufny" path="res://Scenes/torreta.gd" id="9_essts"]
 [ext_resource type="Texture2D" uid="uid://ctkxxldpsx743" path="res://resources/shooter/shooter.png" id="9_o6vom"]
 [ext_resource type="PackedScene" uid="uid://xgemoqeq1757" path="res://Scenes/large_bullet.tscn" id="10_mfquy"]
 [ext_resource type="PackedScene" uid="uid://c7twg1utjvxmx" path="res://Scenes/dialogo2.tscn" id="10_mx7q7"]
@@ -467,7 +467,6 @@ linear_damp = 50.0
 
 [node name="ColisionEspejo" type="CollisionShape2D" parent="Espejo/Hitbox2"]
 rotation = -0.485786
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wu7d3")
 
 [node name="Torreta" type="StaticBody2D" parent="."]

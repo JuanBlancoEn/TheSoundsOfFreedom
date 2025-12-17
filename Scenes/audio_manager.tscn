@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8he4cmf86iu0"]
+[gd_scene load_steps=8 format=3 uid="uid://b8he4cmf86iu0"]
 
 [ext_resource type="Script" uid="uid://bu00e3ls7sjok" path="res://audio_manager.gd" id="1_hhwve"]
 [ext_resource type="AudioStream" uid="uid://b7p3188f1oo07" path="res://Music/Regular.wav" id="2_qixve"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dhrip30kxj5w" path="res://Music/pickupCoin.wav" id="4_qixve"]
 [ext_resource type="AudioStream" uid="uid://b67byxapqd575" path="res://Music/SciFi_Monster4.mp3" id="5_0hehx"]
 [ext_resource type="AudioStream" uid="uid://bn37ma7cnne2g" path="res://Music/Retro Gun Laser SingleShot 01.wav" id="6_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://cyujaw5nunfvx" path="res://Music/fences.wav" id="7_5kf6k"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_hhwve")
@@ -27,3 +28,6 @@ volume_db = -15.145
 [node name="Bullets" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mjqhu")
 volume_db = -9.088
+
+[node name="Fences" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5kf6k")
