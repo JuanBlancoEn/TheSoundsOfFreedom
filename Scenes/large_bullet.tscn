@@ -18,8 +18,8 @@ fill_from = Vector2(0.509174, 0.46789)
 radius = 13.16637
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anrci"]
-radius = 9.999876
-height = 37.99953
+radius = 8.999889
+height = 31.999605
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 17
