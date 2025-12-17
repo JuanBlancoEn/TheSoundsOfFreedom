@@ -3,7 +3,7 @@ extends Label
 func _ready() -> void:
 	# 1. Empezamos visualmente en 0%
 	text = "0%"
-	G.puntuacion=80
+	
 	# 2. Cogemos el valor de tu variable global
 	var puntuacion_final = G.puntuacion
 	
