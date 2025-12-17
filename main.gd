@@ -3,9 +3,15 @@ extends Node2D
 @onready var player: CharacterBody2D = $Character
 @onready var linea_guia: Line2D = $LineaGuia
 @onready var punto_final: Marker2D = $PuntoFinal
+@onready var pause: CanvasLayer = $pause
+
 func _ready() -> void:
 	G.primer_nivel=false
-	
+func _input(event):
+	if event.is_action_pressed("pausa"): # Solo cuando la bajas
+		
+		get_tree().paused = true
+		pause.visible=get_tree().paused
 func _physics_process(delta: float) -> void:
 	# Verificamos que los nodos existan para evitar errores
 	if not is_instance_valid(player) or not is_instance_valid(linea_guia):

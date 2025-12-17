@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=70 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sw0ehwxy6pk" path="res://resources/boton/boton2.png" id="30_k0qg3"]
 [ext_resource type="Script" path="res://Scenes/boton_2.gd" id="31_bjh56"]
 [ext_resource type="Script" path="res://Scenes/boton_3.gd" id="32_i4ye6"]
+[ext_resource type="PackedScene" uid="uid://buic0on6tucoj" path="res://Scenes/pause.tscn" id="33_4720s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0s8eo"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1371,6 +1372,8 @@ position = Vector2(547, -768)
 [node name="finalArea" type="CollisionShape2D" parent="finalArea"]
 position = Vector2(15, -1)
 shape = SubResource("RectangleShape2D_n37js")
+
+[node name="pause" parent="." instance=ExtResource("33_4720s")]
 
 [connection signal="body_entered" from="Placa" to="Placa" method="_on_body_entered"]
 [connection signal="body_entered" from="Joya" to="Joya" method="_on_body_entered"]

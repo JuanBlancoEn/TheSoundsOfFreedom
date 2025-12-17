@@ -11,10 +11,14 @@ func _input(event):
 	if event.is_action_pressed("pausa"): # Solo cuando la bajas
 		# Cambiamos el estado de pausa
 		var nuevo_estado = not get_tree().paused
-		get_tree().paused = nuevo_estado
+		get_tree().paused = true
 		
 		# Mostramos u ocultamos las cosas según el nuevo estado
 		$ColorRect.visible = nuevo_estado
 		$Label.visible = nuevo_estado
 		
 		print("Pausa cambiada a: ", nuevo_estado)
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

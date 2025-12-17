@@ -33,6 +33,7 @@ func _ready():
 
 func recibir_dano(cantidad: float):
 	vida_actual -= cantidad
+	G.substractPuntuacion(1)
 	if vida_actual < 0:
 		vida_actual = 0
 	
@@ -138,6 +139,7 @@ func plus1Diamante():
 
 func morir():
 	print("💀 Jugador eliminado. Reiniciando nivel...")
+	G.puntuacion=0
 	set_physics_process(false) 
 	get_tree().create_timer(0.5).timeout.connect(get_tree().reload_current_scene)
 

@@ -18,6 +18,7 @@ extends Node2D
 @onready var directional_light_2d: DirectionalLight2D = $DirectionalLight2D
 @onready var linea_guia: Line2D = $LineaGuia
 @onready var punto_final: Marker2D = $PuntoFinal
+@onready var pause: CanvasLayer = $pause
 
 var posicion_real_fence4: Vector2
 var fence3open=false
@@ -58,7 +59,11 @@ func _physics_process(delta: float) -> void:
 	
 	# 4. Le damos los puntos a la línea para que se dibuje
 	linea_guia.points = puntos_ruta
-
+func _input(event):
+	if event.is_action_pressed("pausa"): # Solo cuando la bajas
+		
+		get_tree().paused = true
+		pause.visible=get_tree().paused
 func _process(delta):
 	if G.light_level==2:
 		linea_guia.visible=true
