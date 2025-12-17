@@ -338,5 +338,11 @@ position = Vector2(10, 7)
 scale = Vector2(2.5625, 2.1875)
 texture = ExtResource("10_4c57u")
 
+[node name="LineaGuia" type="Line2D" parent="."]
+width = 3.0
+
+[node name="PuntoFinal" type="Marker2D" parent="."]
+position = Vector2(656, -74)
+
 [connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle" to="Caja2" method="_on_area_puzzle_body_entered"]
 [connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle2" to="Caja3" method="_on_area_puzzle_2_body_entered"]

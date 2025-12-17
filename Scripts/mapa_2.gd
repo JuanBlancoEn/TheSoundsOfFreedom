@@ -16,7 +16,8 @@ extends Node2D
 @onready var area_2d_34: Area2D = $Diamantes/Area2D34
 @onready var fence4: TileMapLayer = $fences4
 @onready var directional_light_2d: DirectionalLight2D = $DirectionalLight2D
-
+@onready var linea_guia: Line2D = $LineaGuia
+@onready var punto_final: Marker2D = $PuntoFinal
 
 var posicion_real_fence4: Vector2
 var fence3open=false
@@ -39,7 +40,29 @@ func _ready() -> void:
 	
 	# 2. La enviamos MUY LEJOS para que no moleste ni se vea
 	fence4.position = Vector2(-10000, -10000)
+func _physics_process(delta: float) -> void:
+	# Verificamos que los nodos existan para evitar errores
+	if not is_instance_valid(character) or not is_instance_valid(linea_guia):
+		return
+		
+	# 1. Obtenemos el ID del mapa de navegación del mundo actual
+	var mapa_id = get_world_2d().navigation_map
+	
+	# 2. Definimos inicio (Jugador) y fin (La meta)
+	var inicio = character.global_position
+	var fin = punto_final.global_position
+	
+	# 3. Pedimos al servidor que calcule la ruta
+	# map_get_path(mapa, origen, destino, optimizar)
+	var puntos_ruta = NavigationServer2D.map_get_path(mapa_id, inicio, fin, true)
+	
+	# 4. Le damos los puntos a la línea para que se dibuje
+	linea_guia.points = puntos_ruta
+
 func _process(delta):
+	if G.light_level==2:
+		linea_guia.visible=true
+	else: linea_guia.visible=false
 	# Si no encontramos al personaje, no hacemos nada para evitar errores
 	killed_spiders=character.killed_spiders
 	# 2. Leemos la variable del personaje (sincronización constante)

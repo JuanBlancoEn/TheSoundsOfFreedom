@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d383wxxxsgsp"]
+[gd_scene load_steps=6 format=3 uid="uid://d383wxxxsgsp"]
 
 [ext_resource type="FontFile" uid="uid://vedvcmkklg23" path="res://resources/x256_Spritesheets/Die1/AerologicaRegular-K7day.ttf" id="1_61mla"]
 [ext_resource type="Script" uid="uid://o6lnyxkaw8e7" path="res://Scenes/score.gd" id="1_trmy6"]
 [ext_resource type="FontFile" uid="uid://bk2ltl3b835a6" path="res://resources/x256_Spritesheets/Die1/Minecraftchmc-dBlX.ttf" id="2_wgkft"]
+[ext_resource type="FontFile" uid="uid://bekfs0th3r7mi" path="res://resources/x256_Spritesheets/Die1/Ferrum-wy99.otf" id="4_k2yra"]
+[ext_resource type="Script" uid="uid://26nafs50k8l5" path="res://Scenes/RESTARTBUTTON.gd" id="5_ht8c0"]
 
 [node name="Final" type="CanvasLayer"]
 
@@ -46,3 +48,25 @@ theme_override_font_sizes/font_size = 109
 text = "sc"
 horizontal_alignment = 1
 script = ExtResource("1_trmy6")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 491.0
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_k2yra")
+theme_override_font_sizes/font_size = 30
+text = "RESTART GAME"
+script = ExtResource("5_ht8c0")
+
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/Button" to="VBoxContainer3/HBoxContainer/Button" method="_on_pressed"]

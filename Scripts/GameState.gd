@@ -24,3 +24,12 @@ var boton3 = false
 var combinacion_botones = [0,0,0]
 
 var es_comb_botones_correcta = false
+func reiniciar_datos():
+	light_level= 1.0
+	changed=false
+	placa_activa=false
+	primer_nivel=true
+	dialogo1=true
+	dialogofinalacabado=false
+	puntuacion=0
+	joya = false
