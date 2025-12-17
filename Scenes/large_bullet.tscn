@@ -21,7 +21,7 @@ radius = 13.16637
 radius = 8.999889
 height = 31.999605
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["large_bullet"]]
 collision_layer = 17
 collision_mask = 17
 mass = 0.001

@@ -45,15 +45,14 @@ func _process(delta):
 	# 2. Leemos la variable del personaje (sincronización constante)
 	var diamantes_actuales = character.diamantes
 	if is_instance_valid(label_fence1):
-		label_fence1.text="UNLOCK IT WITH 11 DIAMONDS \n         YOU HAVE "+str(diamantes_actuales)
-	killed_spiders=character.killed_spiders
+		label_fence1.text="UNLOCK IT WITH 3 BUTTONS ON \n  "
 	
 	if is_instance_valid(label_fence2):
 		label_fence2.text="UNLOCK IT BY KILLING 5 SPIDERS \n   YOU HAVE KILLED "+str(killed_spiders)
 	if is_instance_valid(label_fence3):
 		label_fence3.text="   UNLOCK IT BY\n OPENING THE CHEST"
 	# 3. Comprobamos si llegó a la meta
-	if diamantes_actuales >= 11:
+	if G.es_comb_botones_correcta:
 		
 		# Verificamos si la valla aún existe antes de intentar borrarla
 		if is_instance_valid(fence1):
