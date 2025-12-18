@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://db13bh1l8idqd"]
+[gd_scene load_steps=72 format=4 uid="uid://db13bh1l8idqd"]
 
 [ext_resource type="Script" uid="uid://xlj741r5dneg" path="res://Scripts/mapa_2.gd" id="1_b7k0e"]
 [ext_resource type="Texture2D" uid="uid://dikc17ermymsq" path="res://resources/Tileset/tileset-export.png" id="2_esb8b"]
@@ -826,6 +826,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n37js"]
 size = Vector2(20, 121)
 
+[sub_resource type="Gradient" id="Gradient_4720s"]
+offsets = PackedFloat32Array(0, 0.798701)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_34pvk"]
+gradient = SubResource("Gradient_4720s")
+fill = 2
+fill_from = Vector2(0.5, 0.509174)
+fill_to = Vector2(0.743119, 1)
+
 [node name="Node2D2" type="Node2D" groups=["map2"]]
 process_mode = 1
 script = ExtResource("1_b7k0e")
@@ -1372,6 +1382,11 @@ position = Vector2(15, -1)
 shape = SubResource("RectangleShape2D_n37js")
 
 [node name="pause" parent="." instance=ExtResource("33_4720s")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(821.5, -140)
+scale = Vector2(3.45313, 1)
+texture = SubResource("GradientTexture2D_34pvk")
 
 [connection signal="body_entered" from="Placa" to="Placa" method="_on_body_entered"]
 [connection signal="body_entered" from="Joya" to="Joya" method="_on_body_entered"]

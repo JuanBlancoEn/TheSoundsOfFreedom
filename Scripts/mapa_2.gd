@@ -19,6 +19,7 @@ extends Node2D
 @onready var linea_guia: Line2D = $LineaGuia
 @onready var punto_final: Marker2D = $PuntoFinal
 @onready var pause: CanvasLayer = $pause
+@onready var area_final: Area2D = $areaFinal
 
 var posicion_real_fence4: Vector2
 var fence3open=false
@@ -65,6 +66,7 @@ func _input(event):
 		get_tree().paused = true
 		pause.visible=get_tree().paused
 func _process(delta):
+	print(killed_spiders2)
 	if G.light_level==2:
 		linea_guia.visible=true
 	else: linea_guia.visible=false
@@ -111,7 +113,7 @@ func _process(delta):
 			
 	if killed_spiders2!=0:
 		
-		if killed_spiders==12:
+		if killed_spiders>=10:
 			fence4.queue_free()
 			killed_spiders=killed_spiders2
 			killed_spiders2=0
@@ -132,6 +134,7 @@ func _on_area_final_body_entered(body: CharacterBody2D) -> void:
 		fence4.position = posicion_real_fence4
 		killed_spiders2=killed_spiders
 		body.set_killed_spiders(0)
+		area_final.queue_free()
 
 
 func _on_final_area_body_entered(body: Node2D) -> void:

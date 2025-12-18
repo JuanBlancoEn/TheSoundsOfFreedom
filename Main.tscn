@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://biag61xl3r21w"]
+[gd_scene load_steps=37 format=3 uid="uid://biag61xl3r21w"]
 
 [ext_resource type="PackedScene" uid="uid://7wp7w7lpvtk0" path="res://mapa.tscn" id="1_03owx"]
 [ext_resource type="Script" uid="uid://du0b7g7ac8prw" path="res://main.gd" id="1_c2ibq"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="10_wkp8b"]
 [ext_resource type="Script" path="res://puzzlecontroller.gd" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://buic0on6tucoj" path="res://Scenes/pause.tscn" id="15_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://ci20lv50xv3lv" path="res://Scenes/torch.tscn" id="16_fpfj3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
 
@@ -414,6 +415,9 @@ width = 3.0
 position = Vector2(656, -74)
 
 [node name="pause" parent="." instance=ExtResource("15_j4qnp")]
+
+[node name="Torch" parent="." instance=ExtResource("16_fpfj3")]
+position = Vector2(95, 69)
 
 [connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle" to="Caja2" method="_on_area_puzzle_body_entered"]
 [connection signal="body_entered" from="Puzzlecontroller/AreaPuzzle2" to="Caja3" method="_on_area_puzzle_2_body_entered"]
