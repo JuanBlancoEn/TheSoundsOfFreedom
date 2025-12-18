@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://db13bh1l8idqd" path="res://Scenes/mapa2.tscn" id="9_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://cs02rc4ldkt0v" path="res://resources/rosa.png" id="10_4c57u"]
-[ext_resource type="Script" path="res://caja_2.gd" id="10_dg77c"]
-[ext_resource type="Script" path="res://area_puzzle.gd" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://i46p1j63lkaw" path="res://caja_2.gd" id="10_dg77c"]
+[ext_resource type="Script" uid="uid://dl6dglulyyxic" path="res://area_puzzle.gd" id="10_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="10_wkp8b"]
-[ext_resource type="Script" path="res://puzzlecontroller.gd" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://nscnyv4l3fb6" path="res://puzzlecontroller.gd" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://buic0on6tucoj" path="res://Scenes/pause.tscn" id="15_j4qnp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
@@ -154,7 +154,10 @@ position = Vector2(311, 172)
 position = Vector2(466, 15)
 
 [node name="Area2D3" parent="Diamantes" instance=ExtResource("3_r0du0")]
-position = Vector2(511, 250)
+position = Vector2(553, 253)
+
+[node name="Area2D19" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(517, 172)
 
 [node name="Area2D4" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(678, -54)
@@ -171,8 +174,20 @@ position = Vector2(860, 12)
 [node name="Area2D6" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(358, 1)
 
+[node name="Area2D13" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(273, 249)
+
+[node name="Area2D14" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(158, 250)
+
 [node name="Area2D7" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(739, 102)
+
+[node name="Area2D18" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(665, 24)
+
+[node name="Area2D17" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(740, -11)
 
 [node name="Area2D8" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(688, 231)
@@ -180,11 +195,16 @@ position = Vector2(688, 231)
 [node name="Area2D9" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(459, 137)
 
+[node name="Area2D15" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(566, 184)
+
+[node name="Area2D16" parent="Diamantes" instance=ExtResource("3_r0du0")]
+position = Vector2(566, 151)
+
 [node name="Area2D10" parent="Diamantes" instance=ExtResource("3_r0du0")]
 position = Vector2(612, 154)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -226,12 +246,13 @@ position = Vector2(199, 140)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 90.0
-offset_top = 64.0
-offset_right = 225.0
-offset_bottom = 91.0
+offset_left = 91.0
+offset_top = 37.0
+offset_right = 226.0
+offset_bottom = 64.0
 theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")
+metadata/_edit_use_anchors_ = true
 
 [node name="araña" parent="." instance=ExtResource("9_03owx")]
 position = Vector2(323, 106)
@@ -245,16 +266,60 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(82, 189)
 scale = Vector2(0.2, 0.2)
 
+[node name="araña8" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(356, 170)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña9" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(407, 173)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña10" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(403, 208)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña11" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(359, 211)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña12" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(382, 185)
+scale = Vector2(0.2, 0.2)
+
 [node name="araña4" parent="." instance=ExtResource("9_03owx")]
-position = Vector2(504, 39)
+position = Vector2(507, 58)
 scale = Vector2(0.2, 0.2)
 
 [node name="araña5" parent="." instance=ExtResource("9_03owx")]
-position = Vector2(614, 195)
+position = Vector2(614, 192)
 scale = Vector2(0.2, 0.2)
 
 [node name="araña6" parent="." instance=ExtResource("9_03owx")]
-position = Vector2(663, 52)
+position = Vector2(664, 89)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña13" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(554, 16)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña14" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(599, 17)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña15" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(577, 47)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña16" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(549, 82)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña17" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(604, 84)
+scale = Vector2(0.2, 0.2)
+
+[node name="araña18" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(381, 236)
 scale = Vector2(0.2, 0.2)
 
 [node name="araña7" parent="." instance=ExtResource("9_03owx")]
@@ -262,7 +327,8 @@ position = Vector2(752, -88)
 scale = Vector2(0.2, 0.2)
 
 [node name="Node2D" parent="." instance=ExtResource("9_wkp8b")]
-position = Vector2(1369, -38)
+position = Vector2(1421, -31)
+metadata/_edit_lock_ = true
 
 [node name="Caja2" type="RigidBody2D" parent="." groups=["cajas1"]]
 position = Vector2(200, 178)
