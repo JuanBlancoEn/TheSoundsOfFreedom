@@ -1145,7 +1145,6 @@ text = "    UNLOCK IT BY
  OPENING THE CHEST"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="Enemigos" type="Node2D" parent="."]
