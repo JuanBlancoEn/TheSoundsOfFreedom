@@ -11,23 +11,41 @@ script = ExtResource("1_5a6ek")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.262932, 0.262932, 0.262932, 0.470588)
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
-offset_left = 449.0
-offset_top = 245.0
-offset_right = 700.0
-offset_bottom = 333.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -44.0
+offset_right = 125.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_5a6ek")
 theme_override_font_sizes/font_size = 82
 text = "PAUSE"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 528.0
-offset_top = 408.0
-offset_right = 619.0
-offset_bottom = 448.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 76.0
+offset_right = 51.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

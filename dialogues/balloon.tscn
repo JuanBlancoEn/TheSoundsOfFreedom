@@ -236,14 +236,26 @@ theme_override_fonts/font = ExtResource("2_pa16h")
 theme_override_font_sizes/font_size = 26
 text = "Response example"
 
-[node name="chico" type="AnimatedSprite2D" parent="Balloon"]
-position = Vector2(936, 352)
+[node name="MarginContainer2" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="chico" type="AnimatedSprite2D" parent="Balloon/MarginContainer2"]
+position = Vector2(-156, -266)
 scale = Vector2(0.378906, 0.378906)
 sprite_frames = SubResource("SpriteFrames_m00rr")
 frame_progress = 0.323425
 
-[node name="chica" type="AnimatedSprite2D" parent="Balloon"]
-position = Vector2(952, 408)
+[node name="chica" type="AnimatedSprite2D" parent="Balloon/MarginContainer2"]
+position = Vector2(-140, -210)
 scale = Vector2(0.464844, 0.464844)
 sprite_frames = SubResource("SpriteFrames_2x2yy")
 frame_progress = 0.255015

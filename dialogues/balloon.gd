@@ -20,8 +20,10 @@ extends CanvasLayer
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
-@onready var chico: AnimatedSprite2D = $Balloon/chico
-@onready var chica: AnimatedSprite2D = $Balloon/chica
+#@onready var chico: AnimatedSprite2D = $Balloon/chico
+#@onready var chica: AnimatedSprite2D = $Balloon/chica
+@onready var chico: AnimatedSprite2D = $Balloon/MarginContainer2/chico
+@onready var chica: AnimatedSprite2D = $Balloon/MarginContainer2/chica
 
 ## Temporary game states
 var temporary_game_states: Array = []

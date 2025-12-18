@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ddhcfxe5je468" path="res://Scenes/araña.tscn" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://db13bh1l8idqd" path="res://Scenes/mapa2.tscn" id="9_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://cs02rc4ldkt0v" path="res://resources/rosa.png" id="10_4c57u"]
-[ext_resource type="Script" uid="uid://i46p1j63lkaw" path="res://caja_2.gd" id="10_dg77c"]
-[ext_resource type="Script" uid="uid://dl6dglulyyxic" path="res://area_puzzle.gd" id="10_efxa6"]
+[ext_resource type="Script" path="res://caja_2.gd" id="10_dg77c"]
+[ext_resource type="Script" path="res://area_puzzle.gd" id="10_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dqkj60g0hltu3" path="res://Destructible Objects Sprite Sheet2.png" id="10_wkp8b"]
-[ext_resource type="Script" uid="uid://nscnyv4l3fb6" path="res://puzzlecontroller.gd" id="13_ycdy4"]
+[ext_resource type="Script" path="res://puzzlecontroller.gd" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://buic0on6tucoj" path="res://Scenes/pause.tscn" id="15_j4qnp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc1dx"]
@@ -245,12 +245,13 @@ z_index = 1
 position = Vector2(199, 140)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 91.0
-offset_top = 37.0
-offset_right = 226.0
-offset_bottom = 64.0
+offset_left = 90.0
+offset_top = 64.0
+offset_right = 225.0
+offset_bottom = 91.0
 theme_override_styles/background = SubResource("StyleBoxFlat_trn2v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_03owx")
 metadata/_edit_use_anchors_ = true
